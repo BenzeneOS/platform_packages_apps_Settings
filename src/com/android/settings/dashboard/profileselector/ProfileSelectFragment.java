@@ -135,7 +135,8 @@ public abstract class ProfileSelectFragment extends DashboardFragment {
 
         final View tabContainer = mContentView.findViewById(R.id.tab_container);
         mViewPager = tabContainer.findViewById(R.id.view_pager);
-        mViewPager.setAdapter(new ProfileSelectFragment.ViewPagerAdapter(this));
+        final ViewPagerAdapter adapter = new ProfileSelectFragment.ViewPagerAdapter(this);
+        mViewPager.setAdapter(adapter);
         final TabLayout tabs = tabContainer.findViewById(R.id.tabs);
         new TabLayoutMediator(tabs, mViewPager,
                 (tab, position) -> tab.setText(getPageTitle(position))
@@ -150,9 +151,15 @@ public abstract class ProfileSelectFragment extends DashboardFragment {
                 }
         );
         tabContainer.setVisibility(View.VISIBLE);
-        final int selectedTab = getTabId(activity, getArguments());
-        final TabLayout.Tab tab = tabs.getTabAt(selectedTab);
-        tab.select();
+        // Only show tab pills if there are multiple profiles
+        if (adapter.getItemCount() > 1) {
+            tabs.setVisibility(View.VISIBLE);
+            final int selectedTab = getTabId(activity, getArguments());
+            final TabLayout.Tab tab = tabs.getTabAt(selectedTab);
+            tab.select();
+        } else {
+            tabs.setVisibility(View.GONE);
+        }
 
         final FrameLayout listContainer = mContentView.findViewById(android.R.id.list_container);
         listContainer.setLayoutParams(new LinearLayout.LayoutParams(
