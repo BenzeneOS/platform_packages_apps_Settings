@@ -1671,6 +1671,34 @@
         </activity>
 
         <activity
+            android:name="Settings$StatusBarSettingsActivity"
+            android:label="@string/status_bar_settings_title"
+            android:exported="true">
+            <intent-filter android:priority="1">
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+            <meta-data android:name="com.android.settings.FRAGMENT_CLASS"
+                android:value="com.android.settings.statusbar.StatusBarSettings" />
+            <meta-data android:name="com.android.settings.HIGHLIGHT_MENU_KEY"
+                       android:value="@string/menu_key_status_bar"/>
+        </activity>
+
+        <activity
+            android:name="Settings$NetworkTrafficSettingsActivity"
+            android:label="@string/network_traffic_settings_title"
+            android:exported="true">
+            <intent-filter android:priority="1">
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+            <meta-data android:name="com.android.settings.FRAGMENT_CLASS"
+                android:value="com.android.settings.statusbar.NetworkTrafficSettings" />
+            <meta-data android:name="com.android.settings.HIGHLIGHT_MENU_KEY"
+                       android:value="@string/menu_key_status_bar"/>
+        </activity>
+
+        <activity
             android:name="Settings$NightDisplaySuggestionActivity"
             android:enabled="@*android:bool/config_nightDisplayAvailable"
             android:exported="true"

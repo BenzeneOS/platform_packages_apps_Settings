@@ -1664,4 +1664,42 @@
         <item>Notifications</item>
         <item>Quick settings</item>
     </string-array>
+
+    <!-- Network traffic monitor mode entries -->
+    <string-array name="network_traffic_mode_entries">
+        <item>@string/network_traffic_mode_both</item>
+        <item>@string/network_traffic_mode_upload</item>
+        <item>@string/network_traffic_mode_download</item>
+    </string-array>
+    <string-array name="network_traffic_mode_values" translatable="false">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+    </string-array>
+
+    <!-- Network traffic monitor unit entries -->
+    <string-array name="network_traffic_units_entries">
+        <item>@string/network_traffic_units_bits</item>
+        <item>@string/network_traffic_units_bytes</item>
+    </string-array>
+    <string-array name="network_traffic_units_values" translatable="false">
+        <item>0</item>
+        <item>1</item>
+    </string-array>
+
+    <!-- Network traffic monitor refresh interval entries -->
+    <string-array name="network_traffic_refresh_interval_entries">
+        <item>@string/network_traffic_refresh_interval_1s</item>
+        <item>@string/network_traffic_refresh_interval_2s</item>
+        <item>@string/network_traffic_refresh_interval_3s</item>
+        <item>@string/network_traffic_refresh_interval_4s</item>
+        <item>@string/network_traffic_refresh_interval_5s</item>
+    </string-array>
+    <string-array name="network_traffic_refresh_interval_values" translatable="false">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+    </string-array>
 </resources>
