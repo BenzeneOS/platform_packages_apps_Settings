@@ -99,6 +99,16 @@
             android:key="24 hour"
             android:title="@string/date_time_24hour"
             settings:controller="com.android.settings.datetime.TimeFormatPreferenceController" />
+
+        <SwitchPreferenceCompat
+            android:key="clock_seconds"
+            android:title="@string/show_clock_seconds"
+            settings:controller="com.android.settings.datetime.ClockSecondsPreferenceController" />
+
+        <SwitchPreferenceCompat
+            android:key="clock_seconds_qs"
+            android:title="@string/show_clock_seconds_qs"
+            settings:controller="com.android.settings.datetime.ClockSecondsQSPreferenceController" />
     </PreferenceCategory>
 
     <!-- An optional preference category for feedback. Only displayed up if enabled via flags and config. Always put time feedback at the end. -->
