@@ -17,22 +17,25 @@
 package com.android.settings.statusbar;
 
 import android.app.settings.SettingsEnums;
-import android.os.Bundle;
 
 import com.android.settings.R;
-import com.android.settings.SettingsPreferenceFragment;
+import com.android.settings.dashboard.DashboardFragment;
 import com.android.settings.search.BaseSearchIndexProvider;
 import com.android.settingslib.search.SearchIndexable;
 
 @SearchIndexable
-public class StatusBarSettings extends SettingsPreferenceFragment {
+public class StatusBarSettings extends DashboardFragment {
 
     private static final String TAG = "StatusBarSettings";
 
     @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        addPreferencesFromResource(R.xml.status_bar_settings);
+    protected int getPreferenceScreenResId() {
+        return R.xml.status_bar_settings;
+    }
+
+    @Override
+    protected String getLogTag() {
+        return TAG;
     }
 
     @Override

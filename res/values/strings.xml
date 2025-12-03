@@ -14751,4 +14751,9 @@ Data usage charges may apply.</string>
     <string name="network_traffic_hidearrow_title">Hide arrows</string>
     <string name="network_traffic_hidearrow_summary">Hide the directional arrows</string>
 
+    <!-- Brightness settings in Status bar -->
+    <string name="status_bar_brightness_category_title">Brightness</string>
+    <string name="qs_show_auto_brightness_title">Auto brightness button</string>
+    <string name="qs_show_auto_brightness_summary">Show button to toggle auto brightness near the brightness slider</string>
+
 </resources>

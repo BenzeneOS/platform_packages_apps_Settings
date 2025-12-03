@@ -19,11 +19,12 @@ package com.android.settings.statusbar;
 import android.app.settings.SettingsEnums;
 import android.content.ContentResolver;
 import android.os.Bundle;
-import android.provider.Settings;
 
 import androidx.preference.ListPreference;
 import androidx.preference.Preference;
 import androidx.preference.SwitchPreferenceCompat;
+
+import app.benzeneos.providers.BenzeneSettings;
 
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
@@ -56,39 +57,39 @@ public class NetworkTrafficSettings extends SettingsPreferenceFragment
         final ContentResolver resolver = getContentResolver();
 
         mEnabledPref = findPreference(KEY_ENABLED);
-        mEnabledPref.setChecked(Settings.System.getInt(resolver,
-                Settings.System.NETWORK_TRAFFIC_ENABLED, 0) == 1);
+        mEnabledPref.setChecked(BenzeneSettings.System.getInt(resolver,
+                BenzeneSettings.System.NETWORK_TRAFFIC_ENABLED, 0) == 1);
         mEnabledPref.setOnPreferenceChangeListener(this);
 
         mModePref = findPreference(KEY_MODE);
-        int mode = Settings.System.getInt(resolver,
-                Settings.System.NETWORK_TRAFFIC_MODE, 0);
+        int mode = BenzeneSettings.System.getInt(resolver,
+                BenzeneSettings.System.NETWORK_TRAFFIC_MODE, 0);
         mModePref.setValue(String.valueOf(mode));
         mModePref.setSummary(mModePref.getEntry());
         mModePref.setOnPreferenceChangeListener(this);
 
         mAutohidePref = findPreference(KEY_AUTOHIDE);
-        mAutohidePref.setChecked(Settings.System.getInt(resolver,
-                Settings.System.NETWORK_TRAFFIC_AUTOHIDE, 0) == 1);
+        mAutohidePref.setChecked(BenzeneSettings.System.getInt(resolver,
+                BenzeneSettings.System.NETWORK_TRAFFIC_AUTOHIDE, 0) == 1);
         mAutohidePref.setOnPreferenceChangeListener(this);
 
         mUnitsPref = findPreference(KEY_UNITS);
-        int units = Settings.System.getInt(resolver,
-                Settings.System.NETWORK_TRAFFIC_UNITS, 1);
+        int units = BenzeneSettings.System.getInt(resolver,
+                BenzeneSettings.System.NETWORK_TRAFFIC_UNITS, 1);
         mUnitsPref.setValue(String.valueOf(units));
         mUnitsPref.setSummary(mUnitsPref.getEntry());
         mUnitsPref.setOnPreferenceChangeListener(this);
 
         mRefreshIntervalPref = findPreference(KEY_REFRESH_INTERVAL);
-        int interval = Settings.System.getInt(resolver,
-                Settings.System.NETWORK_TRAFFIC_REFRESH_INTERVAL, 2);
+        int interval = BenzeneSettings.System.getInt(resolver,
+                BenzeneSettings.System.NETWORK_TRAFFIC_REFRESH_INTERVAL, 2);
         mRefreshIntervalPref.setValue(String.valueOf(interval));
         mRefreshIntervalPref.setSummary(mRefreshIntervalPref.getEntry());
         mRefreshIntervalPref.setOnPreferenceChangeListener(this);
 
         mHideArrowPref = findPreference(KEY_HIDE_ARROW);
-        mHideArrowPref.setChecked(Settings.System.getInt(resolver,
-                Settings.System.NETWORK_TRAFFIC_HIDEARROW, 0) == 1);
+        mHideArrowPref.setChecked(BenzeneSettings.System.getInt(resolver,
+                BenzeneSettings.System.NETWORK_TRAFFIC_HIDEARROW, 0) == 1);
         mHideArrowPref.setOnPreferenceChangeListener(this);
 
         updateDependencies(mEnabledPref.isChecked());
@@ -100,40 +101,40 @@ public class NetworkTrafficSettings extends SettingsPreferenceFragment
 
         if (preference == mEnabledPref) {
             boolean enabled = (Boolean) newValue;
-            Settings.System.putInt(resolver,
-                    Settings.System.NETWORK_TRAFFIC_ENABLED, enabled ? 1 : 0);
+            BenzeneSettings.System.putInt(resolver,
+                    BenzeneSettings.System.NETWORK_TRAFFIC_ENABLED, enabled ? 1 : 0);
             updateDependencies(enabled);
             return true;
         } else if (preference == mModePref) {
             int mode = Integer.parseInt((String) newValue);
-            Settings.System.putInt(resolver,
-                    Settings.System.NETWORK_TRAFFIC_MODE, mode);
+            BenzeneSettings.System.putInt(resolver,
+                    BenzeneSettings.System.NETWORK_TRAFFIC_MODE, mode);
             int index = mModePref.findIndexOfValue((String) newValue);
             mModePref.setSummary(mModePref.getEntries()[index]);
             return true;
         } else if (preference == mAutohidePref) {
             boolean autohide = (Boolean) newValue;
-            Settings.System.putInt(resolver,
-                    Settings.System.NETWORK_TRAFFIC_AUTOHIDE, autohide ? 1 : 0);
+            BenzeneSettings.System.putInt(resolver,
+                    BenzeneSettings.System.NETWORK_TRAFFIC_AUTOHIDE, autohide ? 1 : 0);
             return true;
         } else if (preference == mUnitsPref) {
             int units = Integer.parseInt((String) newValue);
-            Settings.System.putInt(resolver,
-                    Settings.System.NETWORK_TRAFFIC_UNITS, units);
+            BenzeneSettings.System.putInt(resolver,
+                    BenzeneSettings.System.NETWORK_TRAFFIC_UNITS, units);
             int index = mUnitsPref.findIndexOfValue((String) newValue);
             mUnitsPref.setSummary(mUnitsPref.getEntries()[index]);
             return true;
         } else if (preference == mRefreshIntervalPref) {
             int interval = Integer.parseInt((String) newValue);
-            Settings.System.putInt(resolver,
-                    Settings.System.NETWORK_TRAFFIC_REFRESH_INTERVAL, interval);
+            BenzeneSettings.System.putInt(resolver,
+                    BenzeneSettings.System.NETWORK_TRAFFIC_REFRESH_INTERVAL, interval);
             int index = mRefreshIntervalPref.findIndexOfValue((String) newValue);
             mRefreshIntervalPref.setSummary(mRefreshIntervalPref.getEntries()[index]);
             return true;
         } else if (preference == mHideArrowPref) {
             boolean hideArrow = (Boolean) newValue;
-            Settings.System.putInt(resolver,
-                    Settings.System.NETWORK_TRAFFIC_HIDEARROW, hideArrow ? 1 : 0);
+            BenzeneSettings.System.putInt(resolver,
+                    BenzeneSettings.System.NETWORK_TRAFFIC_HIDEARROW, hideArrow ? 1 : 0);
             return true;
         }
         return false;

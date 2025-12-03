@@ -84,6 +84,14 @@
         settings:controller="com.android.settings.gestures.GesturesSettingPreferenceController"/>
 
     <Preference
+        android:key="status_bar_settings"
+        android:title="@string/status_bar_settings_title"
+        android:summary="@string/status_bar_settings_summary"
+        android:icon="@drawable/ic_settings_wireless"
+        android:order="-245"
+        android:fragment="com.android.settings.statusbar.StatusBarSettings"/>
+
+    <Preference
         android:key="date_time_settings"
         android:title="@string/date_and_time"
         android:icon="@drawable/ic_settings_date_time"

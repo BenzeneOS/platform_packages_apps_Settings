@@ -196,6 +196,8 @@ import com.android.settings.security.MemtagPage;
 import com.android.settings.security.SecurityAdvancedSettings;
 import com.android.settings.security.SecuritySettings;
 import com.android.settings.shortcut.CreateShortcut;
+import com.android.settings.statusbar.NetworkTrafficSettings;
+import com.android.settings.statusbar.StatusBarSettings;
 import com.android.settings.sound.MediaControlsSettings;
 import com.android.settings.supervision.SupervisionDashboardFragment;
 import com.android.settings.support.SupportDashboardActivity;
@@ -232,6 +234,8 @@ public class SettingsGateway {
             com.android.settings.applications.AppStorageDynCodeLoadingFragment.class.getName(),
             com.android.settings.applications.AppManagePlayIntegrityApiFragment.class.getName(),
             com.android.settings.safetycenter.ExploitProtectionFragment.class.getName(),
+            StatusBarSettings.class.getName(),
+            NetworkTrafficSettings.class.getName(),
             AdvancedConnectedDeviceDashboardFragment.class.getName(),
             CreateShortcut.class.getName(),
             BluetoothPairingDetail.class.getName(),
