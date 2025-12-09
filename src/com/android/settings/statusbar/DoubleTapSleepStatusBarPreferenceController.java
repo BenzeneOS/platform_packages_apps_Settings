@@ -22,33 +22,31 @@ import app.benzeneos.providers.BenzeneSettings;
 import com.android.settings.core.TogglePreferenceController;
 
 /**
- * Preference controller for showing/hiding the auto brightness button in Quick Settings.
+ * Preference controller for double tap to sleep on the status bar.
  */
-public class QsShowAutoBrightnessPreferenceController extends TogglePreferenceController {
+public class DoubleTapSleepStatusBarPreferenceController extends TogglePreferenceController {
 
-    public QsShowAutoBrightnessPreferenceController(@NonNull Context context, @NonNull String key) {
+    public DoubleTapSleepStatusBarPreferenceController(@NonNull Context context,
+            @NonNull String key) {
         super(context, key);
     }
 
     @Override
     public boolean isChecked() {
-        return BenzeneSettings.Secure.getInt(mContext.getContentResolver(),
-                BenzeneSettings.Secure.QS_SHOW_AUTO_BRIGHTNESS, 1) == 1;
+        return BenzeneSettings.System.getInt(mContext.getContentResolver(),
+                BenzeneSettings.System.DOUBLE_TAP_SLEEP_STATUS_BAR, 0) == 1;
     }
 
     @Override
     public boolean setChecked(boolean isChecked) {
-        return BenzeneSettings.Secure.putInt(mContext.getContentResolver(),
-                BenzeneSettings.Secure.QS_SHOW_AUTO_BRIGHTNESS, isChecked ? 1 : 0);
+        return BenzeneSettings.System.putInt(mContext.getContentResolver(),
+                BenzeneSettings.System.DOUBLE_TAP_SLEEP_STATUS_BAR, isChecked ? 1 : 0);
     }
 
     @Override
     @AvailabilityStatus
     public int getAvailabilityStatus() {
-        // Only show on devices with automatic brightness support
-        return mContext.getResources().getBoolean(
-                com.android.internal.R.bool.config_automatic_brightness_available)
-                ? AVAILABLE : UNSUPPORTED_ON_DEVICE;
+        return AVAILABLE;
     }
 
     @Override

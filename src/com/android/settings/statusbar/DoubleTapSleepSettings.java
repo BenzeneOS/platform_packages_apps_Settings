@@ -24,13 +24,13 @@ import com.android.settings.search.BaseSearchIndexProvider;
 import com.android.settingslib.search.SearchIndexable;
 
 @SearchIndexable
-public class StatusBarSettings extends DashboardFragment {
+public class DoubleTapSleepSettings extends DashboardFragment {
 
-    private static final String TAG = "StatusBarSettings";
+    private static final String TAG = "DoubleTapSleepSettings";
 
     @Override
     protected int getPreferenceScreenResId() {
-        return R.xml.status_bar_settings;
+        return R.xml.double_tap_sleep_settings;
     }
 
     @Override
@@ -44,5 +44,5 @@ public class StatusBarSettings extends DashboardFragment {
     }
 
     public static final BaseSearchIndexProvider SEARCH_INDEX_DATA_PROVIDER =
-            new BaseSearchIndexProvider(R.xml.status_bar_settings);
+            new BaseSearchIndexProvider(R.xml.double_tap_sleep_settings);
 }

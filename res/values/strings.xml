@@ -14756,4 +14756,13 @@ Data usage charges may apply.</string>
     <string name="qs_show_auto_brightness_title">Auto brightness button</string>
     <string name="qs_show_auto_brightness_summary">Show button to toggle auto brightness near the brightness slider</string>
 
+    <!-- Gesture settings in Status bar -->
+    <string name="status_bar_gestures_category_title">Gestures</string>
+    <string name="double_tap_to_sleep_title">Tap to sleep</string>
+    <string name="double_tap_to_sleep_summary">Double-tap to turn off the display</string>
+    <string name="double_tap_sleep_status_bar_title">Status bar</string>
+    <string name="double_tap_sleep_status_bar_summary">Double-tap on the status bar to sleep</string>
+    <string name="double_tap_sleep_lockscreen_title">Lock screen</string>
+    <string name="double_tap_sleep_lockscreen_summary">Double-tap on the lock screen to sleep</string>
+
 </resources>
