@@ -34,6 +34,8 @@ import com.android.settingslib.search.SearchIndexable;
 import com.android.settingslib.widget.ButtonPreference;
 import com.android.settingslib.widget.SliderPreference;
 
+import androidx.preference.SwitchPreferenceCompat;
+
 import java.text.NumberFormat;
 import java.util.Locale;
 
@@ -52,6 +54,7 @@ public class GestureNavigationSettingsFragment extends DashboardFragment {
     private static final String LEFT_EDGE_SEEKBAR_KEY = "gesture_left_back_sensitivity";
     private static final String RIGHT_EDGE_SEEKBAR_KEY = "gesture_right_back_sensitivity";
     private static final String GESTURE_TUTORIAL_KEY = "assistant_gesture_navigation_tutorial";
+    private static final String NAVIGATION_BAR_HINT_KEY = "navigation_bar_hint";
     final Intent mLaunchTutorialIntent =  new Intent(ACTION_GESTURE_SANDBOX)
             .setFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
             .putExtra("use_tutorial_menu", true);
@@ -87,6 +90,7 @@ public class GestureNavigationSettingsFragment extends DashboardFragment {
         initSliderPreference(LEFT_EDGE_SEEKBAR_KEY);
         initSliderPreference(RIGHT_EDGE_SEEKBAR_KEY);
         initTutorialButton();
+        initNavigationBarHintPreference();
     }
 
     @Override
@@ -144,6 +148,22 @@ public class GestureNavigationSettingsFragment extends DashboardFragment {
         return context != null
                 && context.getDisplayId() == Display.DEFAULT_DISPLAY
                 && mLaunchTutorialIntent.resolveActivity(context.getPackageManager()) != null;
+    }
+
+    private void initNavigationBarHintPreference() {
+        final SwitchPreferenceCompat pref = getPreferenceScreen().findPreference(
+                NAVIGATION_BAR_HINT_KEY);
+        if (pref == null) {
+            return;
+        }
+        final boolean enabled = Settings.Secure.getInt(getContext().getContentResolver(),
+                Settings.Secure.NAVIGATION_BAR_HINT, 1) == 1;
+        pref.setChecked(enabled);
+        pref.setOnPreferenceChangeListener((preference, newValue) -> {
+            Settings.Secure.putInt(getContext().getContentResolver(),
+                    Settings.Secure.NAVIGATION_BAR_HINT, (boolean) newValue ? 1 : 0);
+            return true;
+        });
     }
 
     private void initSliderPreference(final String key) {

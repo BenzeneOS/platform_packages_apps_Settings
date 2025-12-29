@@ -49,6 +49,19 @@
     </PreferenceCategory>
 
     <PreferenceCategory
+        android:key="navigation_bar_hint_category"
+        android:persistent="false"
+        android:title="@string/navigation_bar_hint_category_title">
+
+        <SwitchPreferenceCompat
+            android:key="navigation_bar_hint"
+            android:title="@string/navigation_bar_hint_title"
+            android:summary="@string/navigation_bar_hint_summary"
+            android:defaultValue="true" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
         android:key="back_sensitivity_category"
         android:persistent="false"
         android:title="@string/back_sensitivity_dialog_title">
