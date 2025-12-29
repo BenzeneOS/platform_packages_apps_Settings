@@ -99,7 +99,7 @@ android_library {
         "WindowManager-Shell-shared-desktopMode",
 
         // Settings dependencies
-        "google_battery",
+        "vendor.benzeneos.battery-V1-java",
         "FingerprintManagerInteractor",
         "MediaDrmSettingsFlagsLib",
         "ReverseWirelessCharging",

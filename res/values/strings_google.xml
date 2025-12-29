@@ -22,4 +22,8 @@
     <string name="charging_optimization_entry_summary_charge_limit"/>
     <string name="charging_optimization_summary_off"/>
     <string name="charging_optimization_title"/>
+
+    <!-- GrapheneOS custom charge limit -->
+    <string name="charging_optimization_level_title">Charge limit</string>
+    <string name="charging_optimization_level_description">Set the maximum battery charge level</string>
 </resources>
