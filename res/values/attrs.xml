@@ -204,4 +204,12 @@
     <attr name="colorScIconRecommend" format="color" />
     <attr name="colorScIconWarn" format="color" />
     <attr name="colorScShieldAccent" format="color" />
+
+    <!-- For IntervalSeekBar (animation scale slider) -->
+    <declare-styleable name="IntervalSeekBar">
+        <attr name="minI" format="float" />
+        <attr name="maxI" format="float" />
+        <attr name="defaultValuePure" format="float" />
+        <attr name="digits" format="integer" />
+    </declare-styleable>
 </resources>

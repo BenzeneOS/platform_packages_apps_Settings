@@ -22,9 +22,9 @@ import android.os.ServiceManager;
 import android.view.IWindowManager;
 
 import androidx.annotation.VisibleForTesting;
-import androidx.preference.ListPreference;
 import androidx.preference.Preference;
 
+import com.android.settings.AnimationScalePreference;
 import com.android.settings.core.PreferenceControllerMixin;
 import com.android.settingslib.development.DeveloperOptionsPreferenceController;
 
@@ -40,18 +40,12 @@ public class TransitionAnimationScalePreferenceController extends
     static final float DEFAULT_VALUE = 1;
 
     private final IWindowManager mWindowManager;
-    private final String[] mListValues;
-    private final String[] mListSummaries;
 
     public TransitionAnimationScalePreferenceController(Context context) {
         super(context);
 
         mWindowManager = IWindowManager.Stub.asInterface(
                 ServiceManager.getService(Context.WINDOW_SERVICE));
-        mListValues = context.getResources().getStringArray(
-                com.android.settingslib.R.array.transition_animation_scale_values);
-        mListSummaries = context.getResources().getStringArray(
-                com.android.settingslib.R.array.transition_animation_scale_entries);
     }
 
     @Override
@@ -78,7 +72,7 @@ public class TransitionAnimationScalePreferenceController extends
 
     private void writeAnimationScaleOption(Object newValue) {
         try {
-            float scale = newValue != null ? Float.parseFloat(newValue.toString()) : DEFAULT_VALUE;
+            float scale = newValue != null ? ((Float) newValue) : DEFAULT_VALUE;
             mWindowManager.setAnimationScale(TRANSITION_ANIMATION_SCALE_SELECTOR, scale);
             updateAnimationScaleValue();
         } catch (RemoteException e) {
@@ -90,17 +84,8 @@ public class TransitionAnimationScalePreferenceController extends
         try {
             final float scale = mWindowManager.getAnimationScale(
                     TRANSITION_ANIMATION_SCALE_SELECTOR);
-            int index = 0; // default
-            for (int i = 0; i < mListValues.length; i++) {
-                float val = Float.parseFloat(mListValues[i]);
-                if (scale <= val) {
-                    index = i;
-                    break;
-                }
-            }
-            final ListPreference listPreference = (ListPreference) mPreference;
-            listPreference.setValue(mListValues[index]);
-            listPreference.setSummary(mListSummaries[index]);
+            final AnimationScalePreference animPref = (AnimationScalePreference) mPreference;
+            animPref.setScale(scale);
         } catch (RemoteException e) {
             // intentional no-op
         }
