@@ -15707,4 +15707,13 @@
     <string name="custom_network_type_text_summary">Leave empty to show the actual network type</string>
     <string name="custom_network_type_text_summary_with_value">Current: %s</string>
     <string name="custom_network_type_text_dialog_title">Enter custom text</string>
+
+    <!-- Double tap to sleep -->
+    <string name="double_tap_sleep_settings_title">Double tap to sleep</string>
+    <string name="double_tap_sleep_status_bar_title">Status bar</string>
+    <string name="double_tap_sleep_status_bar_summary">Double-tap on the status bar to sleep</string>
+    <string name="double_tap_sleep_lockscreen_title">Lock screen</string>
+    <string name="double_tap_sleep_lockscreen_summary">Double-tap on the lock screen to sleep</string>
+    <string name="double_tap_to_sleep_title">Tap to sleep</string>
+    <string name="double_tap_to_sleep_summary">Double-tap to turn off the display</string>
 </resources>
