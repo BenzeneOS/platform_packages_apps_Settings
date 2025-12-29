@@ -25,6 +25,7 @@ import android.content.Context
 import android.content.Intent
 import android.content.IntentFilter
 import android.content.pm.PackageManager
+import android.provider.Settings
 import android.media.AudioManager.INTERNAL_RINGER_MODE_CHANGED_ACTION
 import android.media.AudioManager.RINGER_MODE_NORMAL
 import android.media.AudioManager.RINGER_MODE_SILENT
@@ -90,9 +91,14 @@ class NotificationVolumePreference(private val audioHelper: AudioHelper) :
 
     override fun getEnabledStability() = PreconditionStability.UNSTABLE
 
-    override fun isEnabled(context: Context) =
-        super<PreferenceRestrictionMixin>.isEnabled(context) &&
-            audioHelper.ringerModeInternal == RINGER_MODE_NORMAL
+    // Notification volume is enabled based on whether it follows ringer mode
+    override fun isEnabled(context: Context): Boolean {
+        if (!super<PreferenceRestrictionMixin>.isEnabled(context)) return false
+        val followsRinger = android.provider.Settings.Global.getInt(
+            context.contentResolver,
+            android.provider.Settings.Global.NOTIFICATION_VOLUME_FOLLOWS_RINGER, 0) != 0
+        return !followsRinger || audioHelper.ringerModeInternal == RINGER_MODE_NORMAL
+    }
 
     override val restrictionKeys
         get() = arrayOf(DISALLOW_ADJUST_VOLUME)
@@ -202,9 +208,12 @@ class NotificationVolumePreference(private val audioHelper: AudioHelper) :
     private fun Context.getEffectiveRingerMode(): Int {
         val hasVibrator = getSystemService(Vibrator::class.java)?.hasVibrator() == true
         val ringerMode = audioHelper.ringerModeInternal
+        val followsRinger = Settings.Global.getInt(
+            contentResolver,
+            Settings.Global.NOTIFICATION_VOLUME_FOLLOWS_RINGER, 0) != 0
         return when {
             !hasVibrator && ringerMode == RINGER_MODE_VIBRATE -> RINGER_MODE_SILENT
-            ringerMode == RINGER_MODE_NORMAL &&
+            followsRinger && ringerMode == RINGER_MODE_NORMAL &&
                 audioHelper.getStreamVolume(STREAM_NOTIFICATION) == 0 -> RINGER_MODE_SILENT
             else -> ringerMode
         }
