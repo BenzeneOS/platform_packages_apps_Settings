@@ -15796,4 +15796,10 @@
     <string name="bypass_flag_secure_summary">Allow screenshots and recording of apps that block them</string>
     <string name="bypass_flag_secure_app_title">Bypass secure screen</string>
     <string name="bypass_flag_secure_app_summary">Allow screenshots for this app even if it blocks them</string>
+
+    <!-- Hide screen capture status -->
+    <string name="hide_screen_capture_title">Hide capture detection</string>
+    <string name="hide_screen_capture_summary">Prevent apps from knowing when you take screenshots or record</string>
+    <string name="hide_screen_capture_app_title">Hide capture detection</string>
+    <string name="hide_screen_capture_app_summary">Prevent this app from detecting screenshots or recordings</string>
 </resources>
