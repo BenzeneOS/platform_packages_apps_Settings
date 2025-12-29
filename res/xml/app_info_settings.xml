@@ -101,6 +101,11 @@
         android:summary="@string/summary_placeholder" />
 
     <Preference
+        android:key="battery_spoof"
+        android:title="@string/battery_spoof_title"
+        android:summary="@string/summary_placeholder" />
+
+    <Preference
         android:key="app_language_setting"
         android:title="@string/app_locale_preference_title"
         android:summary="@string/summary_placeholder"
@@ -231,5 +236,4 @@
         settings:controller="com.android.settings.applications.appinfo.AppVersionPreferenceController"
         settings:allowDividerAbove="true"
         settings:enableCopying="true"/>
-
 </PreferenceScreen>
