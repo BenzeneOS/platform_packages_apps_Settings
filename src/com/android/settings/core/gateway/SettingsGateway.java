@@ -96,8 +96,13 @@ import com.android.settings.connecteddevice.usb.UsbDetailsFragment;
 import com.android.settings.datausage.DataSaverSummary;
 import com.android.settings.datausage.DataUsageList;
 import com.android.settings.datausage.DataUsageSummary;
+import com.android.settings.datetime.ClockSecondsSettings;
 import com.android.settings.datetime.DateTimeSettings;
 import com.android.settings.deletionhelper.AutomaticStorageManagerSettings;
+import com.android.settings.display.AppSpecificRefreshRateFragment;
+import com.android.settings.gestures.DoubleTapSleepSettings;
+import com.android.settings.statusbar.NetworkTrafficSettings;
+import com.android.settings.statusbar.StatusBarSettings;
 import com.android.settings.development.DevelopmentSettingsDashboardFragment;
 import com.android.settings.deviceinfo.PrivateVolumeForget;
 import com.android.settings.deviceinfo.PublicVolumeSettings;
@@ -197,6 +202,8 @@ import com.android.settings.safetycenter.ui.SafetyCenterFragment;
 import com.android.settings.safetycenter.ui.SafetyCenterQsFragment;
 import com.android.settings.security.ContentProtectionPreferenceFragment;
 import com.android.settings.security.LockscreenDashboardFragment;
+import com.android.settings.privacy.HideAppListSettings;
+import com.android.settings.privacy.HideAppListWhitelistSettings;
 import com.android.settings.security.MemtagPage;
 import com.android.settings.security.SecurityAdvancedSettings;
 import com.android.settings.security.SecuritySettings;
@@ -230,6 +237,12 @@ public class SettingsGateway {
      * security exception if the fragment it needs to display is not in this list.
      */
     public static final String[] ENTRY_FRAGMENTS = {
+            HideAppListSettings.class.getName(),
+            HideAppListWhitelistSettings.class.getName(),
+            StatusBarSettings.class.getName(),
+            NetworkTrafficSettings.class.getName(),
+            DoubleTapSleepSettings.class.getName(),
+            AppSpecificRefreshRateFragment.class.getName(),
             com.android.settings.applications.AppNativeDebuggingFragment.class.getName(),
             com.android.settings.applications.AppMemtagFragment.class.getName(),
             com.android.settings.applications.AppHardenedMallocFragment.class.getName(),
@@ -253,6 +266,7 @@ public class SettingsGateway {
             VpnSettings.class.getName(),
             DataSaverSummary.class.getName(),
             DateTimeSettings.class.getName(),
+            ClockSecondsSettings.class.getName(),
             LocaleListEditor.class.getName(),
             LanguageAndRegionSettings.class.getName(),
             AvailableVirtualKeyboardFragment.class.getName(),

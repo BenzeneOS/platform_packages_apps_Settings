@@ -15641,4 +15641,26 @@
     <!-- Search keywords for Human interface device access setting -->
     <string name="keywords_access_hid">hid, human, access, device</string>
     <!-- Access HID end -->
+
+    <!-- Clock seconds -->
+    <string name="show_clock_seconds">Show seconds</string>
+    <string name="show_clock_seconds_summary">Display seconds on clock in status bar or Quick Settings</string>
+    <string name="clock_seconds_status_bar_title">Status bar</string>
+    <string name="clock_seconds_status_bar_summary">Show seconds on status bar clock</string>
+    <string name="clock_seconds_qs_title">Quick Settings</string>
+    <string name="clock_seconds_qs_summary">Show seconds on Quick Settings header clock</string>
+    <string name="clock_seconds_both_enabled">Status bar and Quick Settings</string>
+
+    <!-- Status bar AM/PM -->
+    <string name="status_bar_am_pm_title">AM/PM style</string>
+    <string name="status_bar_am_pm_normal">Normal</string>
+    <string name="status_bar_am_pm_small">Small</string>
+    <string name="status_bar_am_pm_hidden">Hidden</string>
+
+    <!-- Status bar clock position -->
+    <string name="status_bar_clock_position_title">Clock position</string>
+    <string name="status_bar_clock_position_right">Right</string>
+    <string name="status_bar_clock_position_center">Center</string>
+    <string name="status_bar_clock_position_left">Left</string>
+    <string name="status_bar_clock_position_hidden">Hidden</string>
 </resources>
