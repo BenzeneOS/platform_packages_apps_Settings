@@ -15075,4 +15075,8 @@
     <string name="double_tap_sleep_lockscreen_summary">Double-tap on the lock screen to sleep</string>
     <string name="double_tap_to_sleep_title">Tap to sleep</string>
     <string name="double_tap_to_sleep_summary">Double-tap to turn off the display</string>
+
+    <!-- Volume panel position -->
+    <string name="volume_panel_on_left_title">Volume panel on left</string>
+    <string name="volume_panel_on_left_summary">Display volume slider on the left side of the screen</string>
 </resources>
