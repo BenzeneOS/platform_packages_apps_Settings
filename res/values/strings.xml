@@ -15759,4 +15759,10 @@
     <!-- Three-finger screenshot gesture -->
     <string name="three_finger_screenshot_title">Three-finger screenshot</string>
     <string name="three_finger_screenshot_summary">Swipe down with three fingers to take a screenshot</string>
+
+    <!-- Clipboard auto-clear -->
+    <string name="clipboard_auto_clear_title">Auto-clear clipboard</string>
+    <string name="clipboard_auto_clear_summary">Automatically clear clipboard contents after a timeout</string>
+    <string name="clipboard_auto_clear_timeout_title">Clipboard timeout</string>
+    <string name="clipboard_auto_clear_footer">Protects sensitive copied data by automatically clearing the clipboard after the selected time period.</string>
 </resources>

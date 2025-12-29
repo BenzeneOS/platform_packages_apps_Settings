@@ -19,7 +19,11 @@ package com.android.settings.safetycenter.ui
 import android.content.Context
 import com.android.settings.R
 import com.android.settings.flags.Flags
+import com.android.settings.privacy.CameraToggleController
+import com.android.settings.privacy.MicToggleController
+import com.android.settings.privacy.ShowClipAccessNotificationPreferenceController
 import com.android.settings.search.BaseSearchIndexProvider
+import com.android.settingslib.core.AbstractPreferenceController
 import com.android.settingslib.search.SearchIndexable
 import com.android.settingslib.search.SearchIndexableRaw
 
@@ -40,6 +44,14 @@ class PrivacyControlsFragment : SafetyCenterSubpageFragment() {
         // Privacy controls subpage shouldn't be hidden even if safety source preferences in it are
         // not present, because it contains a lot of other preferences.
         return
+    }
+
+    override fun createPreferenceControllers(context: Context): List<AbstractPreferenceController> {
+        return listOf(
+            CameraToggleController(context, "privacy_camera_toggle"),
+            MicToggleController(context, "privacy_mic_toggle"),
+            ShowClipAccessNotificationPreferenceController(context)
+        )
     }
 
     companion object {
