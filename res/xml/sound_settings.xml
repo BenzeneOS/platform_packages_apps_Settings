@@ -169,14 +169,6 @@
         android:key="audio_category"
         android:order="-120"
         android:title="@string/sound_audio_category_title">
-        <!-- Clear Calling - noise reduction for phone calls -->
-        <SwitchPreferenceCompat
-            android:key="clear_calling_enabled"
-            android:title="@string/clear_calling_title"
-            android:summary="@string/clear_calling_summary"
-            android:order="-115"
-            settings:controller="com.android.settings.sound.ClearCallingPreferenceController"/>
-
         <!-- Live Caption -110 and Now Playing -105-->
 
         <!-- Spatial audio -->
@@ -225,13 +217,6 @@
             android:key="charging_sounds_enabled"
             android:title="@string/charging_sounds_title"
             android:order="-40"/>
-
-        <!-- Charging vibration -->
-        <SwitchPreferenceCompat
-            android:key="charging_vibration_enabled"
-            android:title="@string/charging_vibration_title"
-            android:order="-38"
-            settings:controller="com.android.settings.sound.ChargingVibrationPreferenceController"/>
 
         <!-- Docking sounds -->
         <SwitchPreferenceCompat
@@ -285,9 +270,4 @@
             android:order="100"
             settings:controller="com.android.settings.notification.WorkSoundsPreferenceController"/>
     </PreferenceCategory>
-    <SwitchPreferenceCompat
-        android:key="volume_panel_on_left"
-        android:title="@string/volume_panel_on_left_title"
-        android:summary="@string/volume_panel_on_left_summary"
-        settings:controller="com.android.settings.sound.VolumePanelPositionController" />
 </PreferenceScreen>

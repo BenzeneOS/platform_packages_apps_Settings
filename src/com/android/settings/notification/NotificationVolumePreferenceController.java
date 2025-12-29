@@ -94,9 +94,18 @@ public class NotificationVolumePreferenceController extends
 
     @Override
     public int getAvailabilityStatus() {
-        return mContext.getResources().getBoolean(R.bool.config_show_notification_volume)
-                && !mHelper.isSingleVolume() ? (mRingerMode == AudioManager.RINGER_MODE_NORMAL
-                ? AVAILABLE : DISABLED_DEPENDENT_SETTING) : UNSUPPORTED_ON_DEVICE;
+        if (!mContext.getResources().getBoolean(R.bool.config_show_notification_volume)
+                || mHelper.isSingleVolume()) {
+            return UNSUPPORTED_ON_DEVICE;
+        }
+        // Check if notification volume follows ringer
+        boolean followsRinger = android.provider.Settings.Global.getInt(
+                mContext.getContentResolver(),
+                android.provider.Settings.Global.NOTIFICATION_VOLUME_FOLLOWS_RINGER, 0) != 0;
+        if (followsRinger && mRingerMode != AudioManager.RINGER_MODE_NORMAL) {
+            return DISABLED_DEPENDENT_SETTING;
+        }
+        return AVAILABLE;
     }
 
     @Override
@@ -157,7 +166,11 @@ public class NotificationVolumePreferenceController extends
 
     private void updateEnabledState() {
         if (mPreference != null) {
-            mPreference.setEnabled(mRingerMode == AudioManager.RINGER_MODE_NORMAL);
+            boolean followsRinger = android.provider.Settings.Global.getInt(
+                    mContext.getContentResolver(),
+                    android.provider.Settings.Global.NOTIFICATION_VOLUME_FOLLOWS_RINGER, 0) != 0;
+            // Only disable if notification follows ringer and ringer is not normal
+            mPreference.setEnabled(!followsRinger || mRingerMode == AudioManager.RINGER_MODE_NORMAL);
         }
     }
 
