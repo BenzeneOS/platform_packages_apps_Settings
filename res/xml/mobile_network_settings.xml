@@ -383,6 +383,13 @@
           settings:controller="com.android.settings.network.telephony.DeleteSimProfilePreferenceController"/>
     </com.android.settingslib.widget.UntitledPreferenceCategory>
 
+    <Preference
+        android:key="custom_network_type_settings"
+        android:title="@string/custom_network_type_title"
+        android:summary="@string/custom_network_type_summary"
+        android:fragment="com.android.settings.network.CustomNetworkTypeSettings"
+        settings:controller="com.android.settings.network.CustomNetworkTypePreferenceController"/>
+
     <com.android.settingslib.widget.FooterPreference
         android:key="disable_sim_explanation"
         android:order="30"
