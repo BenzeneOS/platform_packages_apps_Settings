@@ -17,8 +17,9 @@ public class BatteryChargingOptimizationPrefController extends BoolSettingFragme
 
     @Override
     protected CharSequence getSummaryOn() {
+        int chargeLevel = BatteryChargeLimit.getChargeStopLevel(mContext);
         return mContext.getString(R.string.charging_optimization_entry_summary_charge_limit,
-                        NumberFormat.getPercentInstance().format(BatteryChargeLimit.CHARGE_LEVEL / 100f));
+                        NumberFormat.getPercentInstance().format(chargeLevel / 100f));
     }
 
     @Override

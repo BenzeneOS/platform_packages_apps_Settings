@@ -57,6 +57,8 @@ import com.android.settingslib.RestrictedLockUtilsInternal;
 import com.google.android.material.textfield.TextInputLayout;
 import com.google.common.net.InternetDomainName;
 
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -260,7 +262,24 @@ public class PrivateDnsModeDialogPreference extends CustomDialogPreferenceCompat
                 Log.w(TAG, "The hostname is empty!");
                 return;
             }
-            if (!InternetDomainName.isValid(mHostnameText.getText().toString())) {
+            String input = mHostnameText.getText().toString().trim();
+            // Support both full DoH URLs (https://...) and hostnames
+            if (input.startsWith("https://")) {
+                // Validate as URL
+                try {
+                    URL url = new URL(input);
+                    String host = url.getHost();
+                    if (host == null || host.isEmpty()) {
+                        mHostnameLayout.setError(context.getString(R.string.private_dns_hostname_invalid));
+                        Log.w(TAG, "The URL has no valid host!");
+                        return;
+                    }
+                } catch (MalformedURLException e) {
+                    mHostnameLayout.setError(context.getString(R.string.private_dns_hostname_invalid));
+                    Log.w(TAG, "The URL is malformed: " + e.getMessage());
+                    return;
+                }
+            } else if (!InternetDomainName.isValid(input)) {
                 mHostnameLayout.setError(context.getString(R.string.private_dns_hostname_invalid));
                 Log.w(TAG, "The hostname is invalid!");
                 return;
