@@ -15720,4 +15720,21 @@
     <!-- Volume panel position -->
     <string name="volume_panel_on_left_title">Volume panel on left</string>
     <string name="volume_panel_on_left_summary">Display volume slider on the left side of the screen</string>
+
+    <!-- Long press power action (screen off) -->
+    <string name="long_press_power_action_title">Long press power action</string>
+
+    <!-- Action strings for gesture actions -->
+    <string name="action_nothing">Nothing</string>
+    <string name="action_flashlight">Toggle flashlight</string>
+    <string name="action_play_pause_music">Play/pause music</string>
+    <string name="action_launch_camera">Launch camera</string>
+
+    <!-- Volume wake -->
+    <string name="volume_wake_title">Volume button wake</string>
+    <string name="volume_wake_summary">Pressing volume buttons will wake the screen</string>
+
+    <!-- Volume button music controls -->
+    <string name="volbtn_music_controls_title">Volume button music control</string>
+    <string name="volbtn_music_controls_summary">Long press volume buttons to skip tracks when screen is off</string>
 </resources>
