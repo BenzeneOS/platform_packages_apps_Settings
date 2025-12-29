@@ -15051,4 +15051,19 @@
     <string name="network_traffic_refresh_interval_5s">5 seconds</string>
     <string name="network_traffic_hidearrow_title">Hide arrows</string>
     <string name="network_traffic_hidearrow_summary">Hide the directional arrows</string>
+
+    <!-- Carrier on lockscreen -->
+    <string name="carrier_on_lockscreen_title">Network name</string>
+    <string name="carrier_on_lockscreen_summary">Show carrier name on lock screen</string>
+    <string name="carrier_text_override_title">Custom network name</string>
+    <string name="carrier_text_override_summary_empty">Tap to set custom text</string>
+    <string name="carrier_text_override_dialog_title">Custom network name</string>
+
+    <!-- Custom network type indicator -->
+    <string name="custom_network_type_title">Custom network type indicator</string>
+    <string name="custom_network_type_summary">Replace network type (LTE, 5G, etc.) with custom text</string>
+    <string name="custom_network_type_text_title">Custom text</string>
+    <string name="custom_network_type_text_summary">Leave empty to show the actual network type</string>
+    <string name="custom_network_type_text_summary_with_value">Current: %s</string>
+    <string name="custom_network_type_text_dialog_title">Enter custom text</string>
 </resources>

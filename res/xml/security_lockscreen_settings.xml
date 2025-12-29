@@ -23,6 +23,13 @@
     <PreferenceCategory
         android:key="lockscreen_what_to_show"
         android:title="@string/lockscreen_settings_what_to_show_category">
+        <com.android.settingslib.PrimarySwitchPreference
+            android:key="carrier_on_lockscreen"
+            android:title="@string/carrier_on_lockscreen_title"
+            android:summary="@string/carrier_on_lockscreen_summary"
+            android:fragment="com.android.settings.display.CarrierOnLockscreenSettings"
+            settings:controller="com.android.settings.display.CarrierOnLockscreenPreferenceController" />
+
         <com.android.settings.RestrictedListPreference
             android:key="security_setting_lock_screen_notif"
             android:title="@string/lock_screen_notifications_title"
