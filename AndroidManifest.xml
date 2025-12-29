@@ -1643,6 +1643,18 @@
                        android:value="@string/menu_key_display"/>
         </activity>
 
+        <activity-alias
+            android:name="CloudMediaProvidersActivity"
+            android:targetActivity=".spa.SpaActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.settings.CLOUD_MEDIA_PROVIDERS_SETTINGS"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+            <meta-data android:name="com.android.settings.spa.DESTINATION"
+                android:value="CloudMediaProviders"/>
+        </activity-alias>
+
         <activity
             android:name="Settings$DndPeopleSettingsActivity"
             android:featureFlag="com.android.settings.flags.deeplink_modes_25q4"
