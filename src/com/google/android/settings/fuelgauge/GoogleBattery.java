@@ -5,19 +5,19 @@ import android.os.IBinder;
 import android.os.ServiceManager;
 import android.util.Log;
 
-import vendor.google.google_battery.IGoogleBattery;
+import vendor.benzeneos.battery.IBattery;
 
 public class GoogleBattery {
     static final String TAG = "GoogleBattery";
 
     @Nullable
-    public static IGoogleBattery getService() {
-        String svc = IGoogleBattery.DESCRIPTOR + "/default";
+    public static IBattery getService() {
+        String svc = "vendor.benzeneos.battery.IBattery/default";
         IBinder binder = ServiceManager.getService(svc);
         if (binder == null) {
             Log.w(TAG, svc + " is null");
             return null;
         }
-        return IGoogleBattery.Stub.asInterface(binder);
+        return IBattery.Stub.asInterface(binder);
     }
 }
