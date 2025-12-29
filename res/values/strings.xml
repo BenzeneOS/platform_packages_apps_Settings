@@ -15161,4 +15161,8 @@
     <string name="hide_screen_capture_summary">Prevent apps from knowing when you take screenshots or record</string>
     <string name="hide_screen_capture_app_title">Hide capture detection</string>
     <string name="hide_screen_capture_app_summary">Prevent this app from detecting screenshots or recordings</string>
+
+    <!-- WiFi standard icon -->
+    <string name="wifi_standard_icon_title">Show WiFi standard</string>
+    <string name="wifi_standard_icon_summary">Display WiFi generation (4/5/6/7) indicator next to the WiFi icon in status bar</string>
 </resources>
