@@ -15165,4 +15165,8 @@
     <!-- WiFi standard icon -->
     <string name="wifi_standard_icon_title">Show WiFi standard</string>
     <string name="wifi_standard_icon_summary">Display WiFi generation (4/5/6/7) indicator next to the WiFi icon in status bar</string>
+
+    <!-- Heads up timeout -->
+    <string name="heads_up_timeout_title">Heads-up timeout</string>
+    <string name="heads_up_timeout_summary">Duration in seconds before heads-up notifications auto-dismiss</string>
 </resources>

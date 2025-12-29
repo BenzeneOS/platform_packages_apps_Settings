@@ -205,6 +205,14 @@
             android:title="@string/snooze_options_title"
             settings:controller="com.android.settings.notification.SnoozeNotificationPreferenceController" />
 
+        <com.android.settings.widget.SeekBarPreference
+            android:key="heads_up_timeout"
+            android:order="27"
+            android:title="@string/heads_up_timeout_title"
+            android:max="60"
+            settings:min="1"
+            settings:controller="com.android.settings.notification.HeadsUpTimeoutPreferenceController" />
+
         <!-- Notification badging -->
         <SwitchPreferenceCompat
             android:key="notification_badging"
