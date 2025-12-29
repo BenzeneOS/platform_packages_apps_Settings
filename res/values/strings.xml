@@ -15765,4 +15765,13 @@
     <string name="clipboard_auto_clear_summary">Automatically clear clipboard contents after a timeout</string>
     <string name="clipboard_auto_clear_timeout_title">Clipboard timeout</string>
     <string name="clipboard_auto_clear_footer">Protects sensitive copied data by automatically clearing the clipboard after the selected time period.</string>
+
+    <!-- Hide app list -->
+    <string name="hide_applist_title">Hide apps from other apps</string>
+    <string name="hide_applist_summary">Prevent selected apps from being detected by other apps</string>
+    <string name="hide_applist_show_system">Show system apps</string>
+    <string name="hide_applist_empty">No apps found</string>
+    <string name="hide_applist_manage_whitelist">Manage whitelist</string>
+    <string name="hide_applist_whitelist_title">Apps allowed to see all apps</string>
+    <string name="hide_applist_whitelist_summary">These apps can see all installed apps, including hidden ones</string>
 </resources>
