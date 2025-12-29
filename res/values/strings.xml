@@ -3946,6 +3946,8 @@
     <string name="hub_mode_category_title">Hub mode</string>
     <!-- Title of the "widgets on lockscreen" settings page. [CHAR LIMIT=NONE] -->
     <string name="widgets_on_lockscreen_title">Widgets on lock screen</string>
+    <!-- Summary for the "widgets on lockscreen" toggle. [CHAR LIMIT=NONE] -->
+    <string name="enable_glanceable_hub_toggle_summary">Access your favorite widgets by swiping left from your lock screen</string>
     <!-- Instructional footer text that appears on the "widgets on lockscreen" settings screen. [CHAR LIMIT=NONE] -->
     <string name="widgets_on_lockscreen_footer">To access your favorite widgets, swipe left from your Lock Screen.
         \n\nWhen you open an app using a widget, you’ll need to verify it’s you. Also keep in mind that anyone can view them.</string>
@@ -15169,4 +15171,105 @@
     <!-- Heads up timeout -->
     <string name="heads_up_timeout_title">Heads-up timeout</string>
     <string name="heads_up_timeout_summary">Duration in seconds before heads-up notifications auto-dismiss</string>
+
+    <!-- Battery Saver Options -->
+    <string name="battery_saver_options_title">Battery Saver options</string>
+    <string name="battery_saver_options_summary">Configure what Battery Saver does</string>
+    <string name="battery_saver_category_display">Display</string>
+    <string name="battery_saver_category_performance">Performance</string>
+    <string name="battery_saver_category_network">Network</string>
+    <string name="battery_saver_category_sensors">Sensors &amp; input</string>
+    <string name="battery_saver_category_background">Background tasks</string>
+    <string name="battery_saver_category_location">Location</string>
+    <string name="battery_saver_allow_animation_title">Allow animations</string>
+    <string name="battery_saver_allow_animation_summary">Keep window and transition animations enabled</string>
+    <string name="battery_saver_refresh_rate_title">Refresh rate limit</string>
+    <string name="battery_saver_refresh_rate_summary">Maximum display refresh rate when Battery Saver is on</string>
+    <string name="battery_saver_refresh_rate_no_limit">No limit</string>
+    <string name="battery_saver_allow_blur_title">Allow window blur</string>
+    <string name="battery_saver_allow_blur_summary">Keep blur effects enabled behind dialogs and notifications</string>
+    <string name="battery_saver_allow_hbm_title">Allow high brightness</string>
+    <string name="battery_saver_allow_hbm_summary">Allow screen to use high brightness mode in sunlight</string>
+    <string name="battery_saver_allow_aod_title">Allow Always-On Display</string>
+    <string name="battery_saver_allow_aod_summary">Keep Always-On Display enabled</string>
+    <string name="battery_saver_allow_night_mode_off_title">Keep dark theme setting</string>
+    <string name="battery_saver_allow_night_mode_off_summary">Don\'t force dark theme when Battery Saver is on</string>
+    <string name="battery_saver_allow_brightness_title">Keep normal brightness</string>
+    <string name="battery_saver_allow_brightness_summary">Don\'t reduce screen brightness</string>
+    <string name="battery_saver_allow_launch_boost_title">Allow launch boost</string>
+    <string name="battery_saver_allow_launch_boost_summary">Keep CPU boost when opening apps</string>
+    <string name="battery_saver_allow_standby_title">Allow normal app standby</string>
+    <string name="battery_saver_allow_standby_summary">Don\'t force all apps into standby mode</string>
+    <string name="battery_saver_allow_background_title">Allow background services</string>
+    <string name="battery_saver_allow_background_summary">Don\'t restrict background app activity</string>
+    <string name="battery_saver_disable_quick_doze_title">Disable quick doze</string>
+    <string name="battery_saver_disable_quick_doze_summary">Don\'t enter deep doze immediately when screen turns off</string>
+    <string name="battery_saver_allow_network_title">Allow background network</string>
+    <string name="battery_saver_allow_network_summary">Don\'t block background network access for apps</string>
+    <string name="battery_saver_allow_data_title">Keep data saver off</string>
+    <string name="battery_saver_allow_data_summary">Don\'t enable data saver mode</string>
+    <string name="battery_saver_allow_vibration_title">Allow vibration</string>
+    <string name="battery_saver_allow_vibration_summary">Keep haptic feedback and vibrations enabled</string>
+    <string name="battery_saver_allow_soundtrigger_title">Allow "Hey Google"</string>
+    <string name="battery_saver_allow_soundtrigger_summary">Keep hotword detection active</string>
+    <string name="battery_saver_allow_sensors_title">Allow optional sensors</string>
+    <string name="battery_saver_allow_sensors_summary">Keep edge sensors and other optional sensors active</string>
+    <string name="battery_saver_allow_attention_title">Allow attention detection</string>
+    <string name="battery_saver_allow_attention_summary">Keep screen attention feature active to prevent screen timeout</string>
+    <string name="battery_saver_allow_camera_rotate_title">Allow face-based rotation</string>
+    <string name="battery_saver_allow_camera_rotate_summary">Keep camera-based auto-rotate active</string>
+    <string name="battery_saver_allow_full_backup_title">Allow full backups</string>
+    <string name="battery_saver_allow_full_backup_summary">Don\'t defer full backup operations</string>
+    <string name="battery_saver_allow_kv_backup_title">Allow key-value backups</string>
+    <string name="battery_saver_allow_kv_backup_summary">Don\'t defer key-value backup operations</string>
+    <string name="battery_saver_allow_location_title">Keep normal location</string>
+    <string name="battery_saver_allow_location_summary">Don\'t restrict location services</string>
+    <string name="battery_saver_options_reset">Reset to defaults</string>
+    <string name="battery_saver_options_reset_summary">Restore all options to their default settings</string>
+    <string name="battery_saver_options_reset_confirm">Reset all Battery Saver options to defaults?</string>
+
+    <!-- QS auto brightness -->
+    <string name="qs_show_auto_brightness_title">Auto brightness button</string>
+    <string name="qs_show_auto_brightness_summary">Show button to toggle auto brightness near the brightness slider</string>
+    <string name="reset_auto_brightness_title">Reset brightness preference</string>
+    <string name="reset_auto_brightness_summary">Reset learned brightness adjustments to default</string>
+    <string name="reset_auto_brightness_done">Auto brightness preference has been reset</string>
+    <string name="status_bar_brightness_category_title">Brightness</string>
+
+    <!-- App-specific refresh rate -->
+    <string name="app_refresh_rate_title">Per-app refresh rate</string>
+    <string name="app_refresh_rate_summary">Configure refresh rate for specific apps</string>
+    <string name="app_refresh_rate_default">Default (Auto)</string>
+    <string name="app_refresh_rate_default_suffix">(default)</string>
+    <string name="app_specific_refresh_rate_title">App-specific refresh rate</string>
+    <string name="app_specific_refresh_rate_summary">Set custom refresh rates for individual apps</string>
+    <string name="app_specific_refresh_rate_apps_title">Installed apps</string>
+
+    <!-- Cloud media providers -->
+    <string name="cloud_media_providers_title">Cloud media providers</string>
+    <string name="permit_cloud_media_provider">Allow cloud media provider access</string>
+    <string name="allow_cloud_media_provider_description">When allowed, this app can provide cloud photos and videos to the system photo picker. Only enable for apps you trust.</string>
+    <string name="keywords_cloud_media_providers">cloud photos, photo picker, immich, nextcloud</string>
+
+    <!-- Sound: Clear Calling -->
+    <string name="clear_calling_title">Clear Calling</string>
+    <string name="clear_calling_summary">Reduce background noise during phone calls using on-device AI</string>
+    <string name="clear_calling_unavailable">Not available on this device</string>
+
+    <!-- Charging vibration -->
+    <string name="charging_vibration_title">Charging vibration</string>
+
+    <!-- Notification volume follows ringer -->
+    <string name="notification_volume_follows_ringer_title">Link notification to ringer</string>
+    <string name="notification_volume_follows_ringer_summary">Mute notification sounds when ringer is set to silent or vibrate</string>
+
+    <!-- WiFi copy password -->
+    <string name="wifi_copy_password">Copy password</string>
+    <string name="wifi_password_copied">Password copied to clipboard</string>
+    <string name="wifi_password_unavailable">Password not available</string>
+
+    <!-- Navigation bar hint -->
+    <string name="navigation_bar_hint_category_title">Navigation bar</string>
+    <string name="navigation_bar_hint_title">Navigation hint</string>
+    <string name="navigation_bar_hint_summary">Show bar at the bottom of the screen</string>
 </resources>

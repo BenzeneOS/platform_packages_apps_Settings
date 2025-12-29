@@ -1809,4 +1809,18 @@
         <item>43200</item>
         <item>86400</item>
     </string-array>
+
+    <!-- Battery saver refresh rate options -->
+    <string-array name="battery_saver_refresh_rate_entries">
+        <item>No limit</item>
+        <item>60 Hz</item>
+        <item>90 Hz</item>
+        <item>120 Hz</item>
+    </string-array>
+    <string-array name="battery_saver_refresh_rate_values" translatable="false">
+        <item>0</item>
+        <item>60</item>
+        <item>90</item>
+        <item>120</item>
+    </string-array>
 </resources>
