@@ -1747,4 +1747,36 @@
         <item>2</item>
         <item>3</item>
     </string-array>
+
+    <!-- Edge long swipe action entries -->
+    <string-array name="edge_long_swipe_action_entries">
+        <item>@string/action_nothing</item>
+        <item>@string/action_menu</item>
+        <item>@string/action_app_switch</item>
+        <item>@string/action_search</item>
+        <item>@string/action_voice_search</item>
+        <item>@string/action_in_app_search</item>
+        <item>@string/action_launch_camera</item>
+        <item>@string/action_sleep</item>
+        <item>@string/action_last_app</item>
+        <item>@string/action_split_screen</item>
+        <item>@string/action_kill_app</item>
+        <item>@string/action_play_pause_music</item>
+        <item>@string/action_flashlight</item>
+    </string-array>
+    <string-array name="edge_long_swipe_action_values" translatable="false">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+        <item>8</item>
+        <item>9</item>
+        <item>10</item>
+        <item>11</item>
+        <item>12</item>
+    </string-array>
 </resources>
