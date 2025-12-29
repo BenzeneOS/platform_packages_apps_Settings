@@ -15663,4 +15663,33 @@
     <string name="status_bar_clock_position_center">Center</string>
     <string name="status_bar_clock_position_left">Left</string>
     <string name="status_bar_clock_position_hidden">Hidden</string>
+
+    <!-- Status bar settings -->
+    <string name="status_bar_settings_title">Status bar</string>
+    <string name="status_bar_settings_summary">Network traffic monitor and other status bar tweaks</string>
+    <string name="status_bar_icons_category_title">Icons</string>
+
+    <!-- Network traffic monitor -->
+    <string name="network_traffic_settings_title">Network traffic monitor</string>
+    <string name="network_traffic_settings_summary">Display current network speed in status bar</string>
+    <string name="network_traffic_enabled_title">Enable network traffic monitor</string>
+    <string name="network_traffic_enabled_summary">Show network speed indicator in status bar</string>
+    <string name="network_traffic_mode_title">Display mode</string>
+    <string name="network_traffic_mode_both">Upload and download</string>
+    <string name="network_traffic_mode_upload">Upload only</string>
+    <string name="network_traffic_mode_download">Download only</string>
+    <string name="network_traffic_autohide_title">Auto hide</string>
+    <string name="network_traffic_autohide_summary">Hide when there is no network activity</string>
+    <string name="network_traffic_units_title">Display units</string>
+    <string name="network_traffic_units_bits">Bits per second (b/s)</string>
+    <string name="network_traffic_units_bytes">Bytes per second (B/s)</string>
+    <string name="network_traffic_refresh_interval_title">Refresh interval</string>
+    <string name="network_traffic_refresh_interval_summary">How often to update the speed reading</string>
+    <string name="network_traffic_refresh_interval_1s">1 second</string>
+    <string name="network_traffic_refresh_interval_2s">2 seconds</string>
+    <string name="network_traffic_refresh_interval_3s">3 seconds</string>
+    <string name="network_traffic_refresh_interval_4s">4 seconds</string>
+    <string name="network_traffic_refresh_interval_5s">5 seconds</string>
+    <string name="network_traffic_hidearrow_title">Hide arrows</string>
+    <string name="network_traffic_hidearrow_summary">Hide the directional arrows</string>
 </resources>

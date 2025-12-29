@@ -834,4 +834,6 @@ public class Settings extends SettingsActivity {
             }
         }
     }
+    public static class StatusBarSettingsActivity extends SettingsActivity { /* empty */ }
+    public static class NetworkTrafficSettingsActivity extends SettingsActivity { /* empty */ }
 }
