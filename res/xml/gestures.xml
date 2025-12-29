@@ -41,6 +41,18 @@
         android:fragment="com.android.settings.gestures.DoubleTapSleepSettings"
         settings:controller="com.android.settings.gestures.DoubleTapSleepPreferenceController" />
 
+    <SwitchPreferenceCompat
+        android:key="volume_wake"
+        android:title="@string/volume_wake_title"
+        android:summary="@string/volume_wake_summary"
+        settings:controller="com.android.settings.gestures.VolumeWakePreferenceController" />
+
+    <SwitchPreferenceCompat
+        android:key="volbtn_music_controls"
+        android:title="@string/volbtn_music_controls_title"
+        android:summary="@string/volbtn_music_controls_summary"
+        settings:controller="com.android.settings.sound.VolumeMusicControlsPreferenceController" />
+
     <Preference
         android:key="gesture_double_twist_input_summary"
         android:title="@string/double_twist_for_camera_mode_title"
