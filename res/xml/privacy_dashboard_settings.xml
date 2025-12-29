@@ -85,6 +85,25 @@
         android:summary="@string/mic_toggle_description"
         settings:controller="com.android.settings.privacy.MicToggleController"/>
 
+    <!-- Screen capture privacy -->
+    <PreferenceCategory
+        android:key="screen_capture_privacy"
+        android:title="@string/screen_capture_privacy_title">
+
+        <SwitchPreferenceCompat
+            android:key="disable_secure_windows"
+            android:title="@string/bypass_flag_secure_title"
+            android:summary="@string/bypass_flag_secure_summary"
+            settings:controller="com.android.settings.privacy.BypassFlagSecureController"/>
+
+        <SwitchPreferenceCompat
+            android:key="hide_screen_capture_status"
+            android:title="@string/hide_screen_capture_title"
+            android:summary="@string/hide_screen_capture_summary"
+            settings:controller="com.android.settings.privacy.HideScreenCaptureStatusController"/>
+
+    </PreferenceCategory>
+
     <!-- Show passwords -->
     <SwitchPreferenceCompat
         android:key="show_password"
@@ -159,5 +178,4 @@
         android:title="@string/show_clip_access_notification"
         android:summary="@string/show_clip_access_notification_summary"
         settings:controller="com.android.settings.privacy.ShowClipAccessNotificationPreferenceController"/>
-
 </PreferenceScreen>
