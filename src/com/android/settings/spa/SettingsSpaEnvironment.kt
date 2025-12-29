@@ -31,6 +31,7 @@ import com.android.settings.spa.app.backgroundinstall.BackgroundInstalledAppsPag
 import com.android.settings.spa.app.battery.BatteryOptimizationModeAppListPageProvider
 import com.android.settings.spa.app.specialaccess.AlarmsAndRemindersAppListProvider
 import com.android.settings.spa.app.specialaccess.AllFilesAccessAppListProvider
+import com.android.settings.spa.app.specialaccess.CloudMediaProvidersAppListProvider
 import com.android.settings.spa.app.specialaccess.ComputerControlAppInfoPageProvider
 import com.android.settings.spa.app.specialaccess.ComputerControlAutomationAppListProvider
 import com.android.settings.spa.app.specialaccess.ComputerControlTargetAppPageProvider
@@ -65,6 +66,7 @@ import com.android.settings.spa.system.AppLanguagesPageProvider
 import com.android.settings.spa.system.LanguageAndInputPageProvider
 import com.android.settings.spa.system.SystemMainPageProvider
 import com.android.settings.wifi.details2.WifiPrivacyPageProvider
+import com.android.settingslib.spa.framework.common.SettingsPageProvider
 import com.android.settingslib.spa.framework.common.SettingsPageProviderRepository
 import com.android.settingslib.spa.framework.common.SpaEnvironment
 import com.android.settingslib.spa.framework.common.SpaLogger
@@ -77,6 +79,7 @@ open class SettingsSpaEnvironment(context: Context) : SpaEnvironment(context) {
     open fun getTogglePermissionAppListProviders(): List<TogglePermissionAppListProvider> {
         return listOf(
                 AllFilesAccessAppListProvider,
+                CloudMediaProvidersAppListProvider,
                 DisplayOverOtherAppsAppListProvider,
                 MediaManagementAppsAppListProvider,
                 MediaRoutingControlAppListProvider,
@@ -105,8 +108,8 @@ open class SettingsSpaEnvironment(context: Context) : SpaEnvironment(context) {
         )
     }
 
-    open fun settingsPageProviders() =
-        listOf(
+    open fun settingsPageProviders(): List<SettingsPageProvider> =
+        listOf<SettingsPageProvider>(
                 HomePageProvider,
                 AppsMainPageProvider,
                 AllAppListPageProvider,

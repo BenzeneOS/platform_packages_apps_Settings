@@ -59,6 +59,7 @@ object SpecialAppAccessPageProvider : SettingsPageProvider {
     override fun buildEntry(arguments: Bundle?): List<SettingsEntry> {
         return listOf(
                 AllFilesAccessAppListProvider,
+                CloudMediaProvidersAppListProvider,
                 DisplayOverOtherAppsAppListProvider,
                 MediaManagementAppsAppListProvider,
                 MediaRoutingControlAppListProvider,

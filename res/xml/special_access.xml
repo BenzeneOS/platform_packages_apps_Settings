@@ -83,6 +83,14 @@
     </Preference>
 
     <Preference
+        android:key="cloud_media_providers"
+        android:title="@string/cloud_media_providers_title"
+        android:order="-1350"
+        settings:keywords="@string/keywords_cloud_media_providers">
+        <intent android:action="android.settings.CLOUD_MEDIA_PROVIDERS_SETTINGS" />
+    </Preference>
+
+    <Preference
         android:key="write_settings_apps"
         android:title="@string/write_settings"
         android:order="-1300"
