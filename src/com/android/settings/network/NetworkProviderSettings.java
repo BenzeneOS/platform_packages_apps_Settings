@@ -59,6 +59,8 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.content.ClipData;
+import android.content.ClipboardManager;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -146,6 +148,7 @@ public class NetworkProviderSettings extends RestrictedDashboardFragment
     static final int MENU_ID_MODIFY = Menu.FIRST + 4;
     static final int MENU_FIX_CONNECTIVITY = Menu.FIRST + 5;
     static final int MENU_ID_SHARE = Menu.FIRST + 6;
+    static final int MENU_ID_COPY_PASSWORD = Menu.FIRST + 7;
 
     @VisibleForTesting
     static final int ADD_NETWORK_REQUEST = 2;
@@ -835,6 +838,17 @@ public class NetworkProviderSettings extends RestrictedDashboardFragment
         // could only be disconnected and be put in blocklists so it won't be used again.
         addForgetMenuIfSuitable(menu);
         addModifyMenuIfSuitable(menu);
+        addCopyPasswordMenuIfSuitable(menu, mSelectedWifiEntry);
+    }
+
+    @VisibleForTesting
+    void addCopyPasswordMenuIfSuitable(ContextMenu menu, WifiEntry wifiEntry) {
+        if (mIsAdmin && wifiEntry.isSaved()) {
+            WifiConfiguration config = wifiEntry.getWifiConfiguration();
+            if (config != null) {
+                menu.add(Menu.NONE, MENU_ID_COPY_PASSWORD, 0 /* order */, R.string.wifi_copy_password);
+            }
+        }
     }
 
     void addShareMenuIfSuitable(ContextMenu menu) {
@@ -898,6 +912,9 @@ public class NetworkProviderSettings extends RestrictedDashboardFragment
                 return true;
             case MENU_ID_MODIFY:
                 showDialog(mSelectedWifiEntry, WifiConfigUiBase2.MODE_MODIFY);
+                return true;
+            case MENU_ID_COPY_PASSWORD:
+                copyPasswordToClipboard(mSelectedWifiEntry);
                 return true;
             default:
                 return super.onContextItemSelected(item);
@@ -1481,6 +1498,45 @@ public class NetworkProviderSettings extends RestrictedDashboardFragment
     private void forget(WifiEntry wifiEntry) {
         mMetricsFeatureProvider.action(getActivity(), SettingsEnums.ACTION_WIFI_FORGET);
         wifiEntry.forget(null /* callback */);
+    }
+
+    private void copyPasswordToClipboard(WifiEntry wifiEntry) {
+        WifiConfiguration config = wifiEntry.getWifiConfiguration();
+        if (config == null) {
+            Toast.makeText(getContext(), R.string.wifi_password_unavailable,
+                    Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        String password = null;
+
+        // Get password based on security type
+        if (!TextUtils.isEmpty(config.preSharedKey)) {
+            password = config.preSharedKey;
+            // Remove quotes if present
+            if (password.startsWith("\"") && password.endsWith("\"")) {
+                password = password.substring(1, password.length() - 1);
+            }
+        } else if (config.wepKeys != null && config.wepKeys.length > 0
+                && !TextUtils.isEmpty(config.wepKeys[0])) {
+            password = config.wepKeys[0];
+            if (password.startsWith("\"") && password.endsWith("\"")) {
+                password = password.substring(1, password.length() - 1);
+            }
+        }
+
+        if (!TextUtils.isEmpty(password)) {
+            ClipboardManager clipboard =
+                    (ClipboardManager) getContext().getSystemService(Context.CLIPBOARD_SERVICE);
+            ClipData clip = ClipData.newPlainText("wifi_password", password);
+            clipboard.setPrimaryClip(clip);
+
+            Toast.makeText(getContext(), R.string.wifi_password_copied,
+                    Toast.LENGTH_SHORT).show();
+        } else {
+            Toast.makeText(getContext(), R.string.wifi_password_unavailable,
+                    Toast.LENGTH_SHORT).show();
+        }
     }
 
     @VisibleForTesting
