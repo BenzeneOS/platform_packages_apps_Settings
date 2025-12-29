@@ -15737,4 +15737,22 @@
     <!-- Volume button music controls -->
     <string name="volbtn_music_controls_title">Volume button music control</string>
     <string name="volbtn_music_controls_summary">Long press volume buttons to skip tracks when screen is off</string>
+
+    <!-- Edge long swipe -->
+    <string name="edge_long_swipe_title">Long swipe action</string>
+    <string name="edge_long_swipe_summary">Action to perform when swiping far from the edge</string>
+
+    <!-- Edge long swipe action entries -->
+    <string name="action_nothing">Nothing</string>
+    <string name="action_menu">Open menu</string>
+    <string name="action_app_switch">Recent apps</string>
+    <string name="action_search">Search</string>
+    <string name="action_voice_search">Voice search</string>
+    <string name="action_in_app_search">In-app search</string>
+    <string name="action_launch_camera">Launch camera</string>
+    <string name="action_sleep">Turn off screen</string>
+    <string name="action_last_app">Switch to last app</string>
+    <string name="action_split_screen">Split screen</string>
+    <string name="action_kill_app">Kill foreground app</string>
+    <string name="action_play_pause_music">Play/pause music</string>
 </resources>

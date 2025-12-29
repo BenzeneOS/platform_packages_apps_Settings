@@ -54,6 +54,14 @@
         android:summary="@string/volbtn_music_controls_summary"
         settings:controller="com.android.settings.sound.VolumeMusicControlsPreferenceController" />
 
+    <ListPreference
+        android:key="edge_long_swipe"
+        android:title="@string/edge_long_swipe_title"
+        android:entries="@array/edge_long_swipe_action_entries"
+        android:entryValues="@array/edge_long_swipe_action_values"
+        android:defaultValue="0"
+        settings:controller="com.android.settings.gestures.EdgeLongSwipePreferenceController" />
+
     <Preference
         android:key="gesture_double_twist_input_summary"
         android:title="@string/double_twist_for_camera_mode_title"
