@@ -38,6 +38,24 @@
 
     <string name="keyguard_camera_title">Allow camera access when locked</string>
 
+    <string name="require_unlock_for_power_menu_title">Require unlock for power menu</string>
+    <string name="require_unlock_for_power_menu_summary">Require device unlock before shutdown or reboot can be performed from the power menu</string>
+
+    <string name="reset_auto_brightness_title">Reset brightness preference</string>
+    <string name="reset_auto_brightness_summary">Reset learned brightness adjustments to default</string>
+    <string name="reset_auto_brightness_done">Auto brightness preference has been reset</string>
+
+    <string name="charging_vibration_title">Charging vibration</string>
+
+    <string name="notification_volume_follows_ringer_title">Link notification to ringer</string>
+    <string name="notification_volume_follows_ringer_summary">Mute notification sounds when ringer is set to silent or vibrate</string>
+
+    <string name="volume_panel_on_left_title">Volume panel on left</string>
+    <string name="volume_panel_on_left_summary">Display volume slider on the left side of the screen</string>
+
+    <string name="wifi_standard_icon_title">Show WiFi standard</string>
+    <string name="wifi_standard_icon_summary">Display WiFi generation (4/5/6/7) indicator next to the WiFi icon in status bar</string>
+
     <string name="auto_reboot_title">Auto reboot</string>
     <string name="auto_reboot_footer">Automatically reboot the device if it hasn\'t been unlocked within the selected duration of time.</string>
 

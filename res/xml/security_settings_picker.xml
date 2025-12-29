@@ -96,6 +96,12 @@
             android:key="allow_keyguard_camera"
             android:title="@string/keyguard_camera_title" />
 
+        <SwitchPreferenceCompat
+            android:key="require_unlock_for_power_menu"
+            android:title="@string/require_unlock_for_power_menu_title"
+            android:summary="@string/require_unlock_for_power_menu_summary"
+            settings:boolSettingField="android.ext.settings.ExtSettings REQUIRE_UNLOCK_FOR_POWER_MENU" />
+
         <!-- available in pin/pattern/password -->
         <com.android.settings.security.screenlock.ProtectedTimeoutListPreference
             android:key="lock_after_timeout"
