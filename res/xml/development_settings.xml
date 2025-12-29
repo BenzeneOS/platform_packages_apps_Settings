@@ -409,17 +409,13 @@
             android:title="@string/force_rtl_layout_all_locales"
             android:summary="@string/force_rtl_layout_all_locales_summary" />
 
-        <ListPreference
+        <com.android.settings.AnimationScalePreference
             android:key="window_animation_scale"
-            android:title="@string/window_animation_scale_title"
-            android:entries="@array/window_animation_scale_entries"
-            android:entryValues="@array/window_animation_scale_values" />
+            android:title="@string/window_animation_scale_title" />
 
-        <ListPreference
+        <com.android.settings.AnimationScalePreference
             android:key="transition_animation_scale"
-            android:title="@string/transition_animation_scale_title"
-            android:entries="@array/transition_animation_scale_entries"
-            android:entryValues="@array/transition_animation_scale_values" />
+            android:title="@string/transition_animation_scale_title" />
 
         <!--
             RemoveAnimationsPreference uses the same pref key.
@@ -427,11 +423,15 @@
             change the one in developer options as the key in developer settings doesn't need to
             tie to a SettingsProvider key.
         -->
-        <ListPreference
+        <com.android.settings.AnimationScalePreference
             android:key="animator_duration_scale_pref_key"
-            android:title="@string/animator_duration_scale_title"
-            android:entries="@array/animator_duration_scale_entries"
-            android:entryValues="@array/animator_duration_scale_values" />
+            android:title="@string/animator_duration_scale_title" />
+
+        <ListPreference
+            android:key="debug_hw_renderer"
+            android:title="@string/debug_hw_renderer"
+            android:entries="@array/debug_hw_renderer_entries"
+            android:entryValues="@array/debug_hw_renderer_values" />
 
         <ListPreference
             android:key="overlay_display_devices"
