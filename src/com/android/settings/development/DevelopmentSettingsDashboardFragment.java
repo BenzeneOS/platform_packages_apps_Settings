@@ -572,6 +572,7 @@ public class DevelopmentSettingsDashboardFragment extends RestrictedDashboardFra
         controllers.add(new TransparentNavigationBarPreferenceController(context));
         controllers.add(new TransitionAnimationScalePreferenceController(context));
         controllers.add(new AnimatorDurationScalePreferenceController(context));
+        controllers.add(new SetGpuRendererPreferenceController(context));
         controllers.add(new SecondaryDisplayPreferenceController(context));
         controllers.add(new GpuViewUpdatesPreferenceController(context));
         controllers.add(new HardwareLayersUpdatesPreferenceController(context));
