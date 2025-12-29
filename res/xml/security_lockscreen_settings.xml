@@ -102,6 +102,13 @@
             android:title="@string/lockscreen_double_line_clock_setting_toggle"
             android:summary="@string/lockscreen_double_line_clock_summary"
             settings:controller="com.android.settings.display.LockscreenClockPreferenceController" />
+
+        <ListPreference
+            android:key="long_press_power_action"
+            android:title="@string/long_press_power_action_title"
+            android:entries="@array/long_press_power_action_entries"
+            android:entryValues="@array/long_press_power_action_values"
+            settings:controller="com.android.settings.security.LongPressPowerActionPreferenceController" />
     </PreferenceCategory>
 
     <PreferenceCategory

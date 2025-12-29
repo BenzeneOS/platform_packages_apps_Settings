@@ -1733,4 +1733,18 @@
         <item>4</item>
         <item>5</item>
     </string-array>
+
+    <!-- Long press power action entries (screen off) -->
+    <string-array name="long_press_power_action_entries">
+        <item>@string/action_nothing</item>
+        <item>@string/action_flashlight</item>
+        <item>@string/action_play_pause_music</item>
+        <item>@string/action_launch_camera</item>
+    </string-array>
+    <string-array name="long_press_power_action_values" translatable="false">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+    </string-array>
 </resources>
