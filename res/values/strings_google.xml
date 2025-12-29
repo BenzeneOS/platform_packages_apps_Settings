@@ -25,4 +25,8 @@
     <!-- SettingsIntelligenceGoogle: Used in stallion-BD6A.251031.001.A4 -->
     <string name="charging_optimization_footer_charge_limit"/>
     <string name="charging_optimization_summary_charge_limit"/>
+
+    <!-- GrapheneOS custom charge limit -->
+    <string name="charging_optimization_level_title">Charge limit</string>
+    <string name="charging_optimization_level_description">Set the maximum battery charge level</string>
 </resources>
