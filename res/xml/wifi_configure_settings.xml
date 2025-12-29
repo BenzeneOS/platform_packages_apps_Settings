@@ -46,6 +46,12 @@
         android:summary="@string/wifi_cellular_data_fallback_summary"
         settings:controller="com.android.settings.wifi.CellularFallbackPreferenceController" />
 
+    <SwitchPreferenceCompat
+        android:key="wifi_standard_icon"
+        android:title="@string/wifi_standard_icon_title"
+        android:summary="@string/wifi_standard_icon_summary"
+        settings:controller="com.android.settings.wifi.WifiStandardIconPreferenceController"/>
+
     <Preference
         android:key="install_credentials"
         android:title="@string/wifi_install_credentials"/>
@@ -54,5 +60,4 @@
         android:key="wifi_direct"
         android:title="@string/wifi_menu_p2p"
         android:fragment="com.android.settings.wifi.p2p.WifiP2pSettings" />
-
 </PreferenceScreen>
