@@ -22,7 +22,11 @@ import android.content.Context;
 import com.android.settings.R;
 import com.android.settings.dashboard.DashboardFragment;
 import com.android.settings.flags.Flags;
+import com.android.settings.privacy.CameraToggleController;
+import com.android.settings.privacy.MicToggleController;
+import com.android.settings.privacy.ShowClipAccessNotificationPreferenceController;
 import com.android.settings.search.BaseSearchIndexProvider;
+import com.android.settingslib.core.AbstractPreferenceController;
 import com.android.settingslib.search.SearchIndexable;
 
 /**
@@ -42,6 +46,14 @@ class PrivacyControlsFragment : DashboardFragment() {
     }
 
     override fun getMetricsCategory(): Int = SettingsEnums.SAFETY_CENTER
+
+    override fun createPreferenceControllers(context: Context): List<AbstractPreferenceController> {
+        return listOf(
+            CameraToggleController(context, "privacy_camera_toggle"),
+            MicToggleController(context, "privacy_mic_toggle"),
+            ShowClipAccessNotificationPreferenceController(context)
+        )
+    }
 
     companion object {
         @JvmField

@@ -110,6 +110,14 @@
             android:summary="@string/screenshot_timestamp_exif_summary"
             settings:boolSettingField="android.ext.settings.ExtSettings SCREENSHOT_TIMESTAMP_EXIF"/>
 
+        <!-- Clipboard auto-clear -->
+        <com.android.settingslib.PrimarySwitchPreference
+            android:key="clipboard_auto_clear_enabled"
+            android:title="@string/clipboard_auto_clear_title"
+            android:summary="@string/clipboard_auto_clear_summary"
+            android:fragment="com.android.settings.privacy.ClipboardAutoClearSettingsFragment"
+            settings:controller="com.android.settings.privacy.ClipboardAutoClearEnabledController"/>
+
         <!-- Allow software fallback for camera extensions -->
         <SwitchPreferenceCompat
             android:key="privacy_camera_extensions_fallback"
