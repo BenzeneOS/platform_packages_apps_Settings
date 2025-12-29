@@ -729,6 +729,7 @@ public class ChooseLockGeneric extends SettingsActivity {
             mUnlockSettingsControllers.add(new PinScramblingPrefController(requireContext(), Primary));
 
             mUnlockSettingsControllers.add(new BoolSettingPrefController(requireContext(), "allow_keyguard_camera", ExtSettings.ALLOW_KEYGUARD_CAMERA, UserHandle.of(mUserId)));
+            mUnlockSettingsControllers.add(new BoolSettingPrefController(requireContext(), "require_unlock_for_power_menu", ExtSettings.REQUIRE_UNLOCK_FOR_POWER_MENU, UserHandle.of(mUserId)));
         }
 
         private void setUpUnlockSettingsPreference() {
