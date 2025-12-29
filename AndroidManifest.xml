@@ -1598,6 +1598,20 @@
         </activity>
 
         <activity
+            android:name="Settings$DoubleTapSleepSettingsActivity"
+            android:label="@string/double_tap_sleep_settings_title"
+            android:exported="true">
+            <intent-filter android:priority="1">
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+            <meta-data android:name="com.android.settings.FRAGMENT_CLASS"
+                android:value="com.android.settings.gestures.DoubleTapSleepSettings" />
+            <meta-data android:name="com.android.settings.HIGHLIGHT_MENU_KEY"
+                       android:value="@string/menu_key_system"/>
+        </activity>
+
+        <activity
             android:name="Settings$DndPeopleSettingsActivity"
             android:featureFlag="com.android.settings.flags.deeplink_modes_25q4"
             android:exported="true">
