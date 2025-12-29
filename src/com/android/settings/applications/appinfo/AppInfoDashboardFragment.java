@@ -329,6 +329,8 @@ public class AppInfoDashboardFragment extends DashboardFragment
         controllers.add(mAppButtonsPreferenceController);
         controllers.add(new AppBatteryPreferenceController(
                 context, this, packageName, getUid(), lifecycle));
+        controllers.add(new BatterySpoofPreferenceController(
+                context, this, packageName, getUid(), lifecycle));
         controllers.add(new AppMemoryPreferenceController(context, this, lifecycle));
         controllers.add(new DefaultHomeShortcutPreferenceController(context, packageName));
         controllers.add(new DefaultBrowserShortcutPreferenceController(context, packageName));

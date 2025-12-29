@@ -109,6 +109,15 @@
             settings:controller="com.android.settings.display.BatterySharePreferenceController" />
     </com.android.settingslib.widget.UntitledPreferenceCategory>
 
+    <com.android.settingslib.widget.UntitledPreferenceCategory
+        android:key="battery_spoof_category">
+        <Preference
+            android:key="battery_spoof_global"
+            android:title="@string/battery_spoof_global_title"
+            android:summary="@string/summary_placeholder"
+            settings:controller="com.android.settings.fuelgauge.BatterySpoofGlobalPreferenceController" />
+    </com.android.settingslib.widget.UntitledPreferenceCategory>
+
     <com.android.settingslib.widget.FooterPreference
         android:key="power_usage_footer"
         android:title="@string/battery_footer_summary"

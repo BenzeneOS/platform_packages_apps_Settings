@@ -15133,4 +15133,18 @@
     <string name="hide_applist_manage_whitelist">Manage whitelist</string>
     <string name="hide_applist_whitelist_title">Apps allowed to see all apps</string>
     <string name="hide_applist_whitelist_summary">These apps can see all installed apps, including hidden ones</string>
+
+    <!-- Battery spoofing settings -->
+    <string name="battery_spoof_title">Battery level for app</string>
+    <string name="battery_spoof_summary_real">Showing real battery level</string>
+    <string name="battery_spoof_summary_spoofed">Showing %d%%</string>
+    <string name="battery_spoof_summary_global">Using global setting</string>
+    <string name="battery_spoof_option_global">Use global setting</string>
+    <string name="battery_spoof_option_real">Real battery level</string>
+    <string name="battery_spoof_option_custom">Custom level</string>
+    <string name="battery_spoof_footer">Control what battery level this app sees. Some apps may use low battery to pressure you into making purchases.</string>
+    <string name="battery_spoof_global_title">Battery level for apps</string>
+    <string name="battery_spoof_global_summary_off">Showing real battery level</string>
+    <string name="battery_spoof_global_summary_on">Showing %d%% to all apps</string>
+    <string name="battery_spoof_global_footer">Set a default battery level shown to all apps. Individual apps can override this in their app info settings.</string>
 </resources>
