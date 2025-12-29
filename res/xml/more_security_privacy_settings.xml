@@ -118,6 +118,26 @@
             android:fragment="com.android.settings.privacy.ClipboardAutoClearSettingsFragment"
             settings:controller="com.android.settings.privacy.ClipboardAutoClearEnabledController"/>
 
+        <!-- Screen capture privacy -->
+        <SwitchPreferenceCompat
+            android:key="disable_secure_windows"
+            android:title="@string/bypass_flag_secure_title"
+            android:summary="@string/bypass_flag_secure_summary"
+            settings:controller="com.android.settings.privacy.BypassFlagSecureController"/>
+
+        <SwitchPreferenceCompat
+            android:key="hide_screen_capture_status"
+            android:title="@string/hide_screen_capture_title"
+            android:summary="@string/hide_screen_capture_summary"
+            settings:controller="com.android.settings.privacy.HideScreenCaptureStatusController"/>
+
+        <!-- Hide app list -->
+        <Preference
+            android:key="hide_applist"
+            android:title="@string/hide_applist_title"
+            android:summary="@string/hide_applist_summary"
+            android:fragment="com.android.settings.privacy.HideAppListSettings"/>
+
         <!-- Allow software fallback for camera extensions -->
         <SwitchPreferenceCompat
             android:key="privacy_camera_extensions_fallback"
@@ -265,7 +285,5 @@
         android:title="@string/memtag_title"
         android:fragment="com.android.settings.security.MemtagPage"
         settings:controller="com.android.settings.security.MemtagPagePreferenceController" />
-
-
 
 </PreferenceScreen>
