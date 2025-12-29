@@ -17,6 +17,7 @@
 package com.android.settings.spa.app.appinfo
 
 import android.app.Activity
+import android.app.AppOpsManager
 import android.app.settings.SettingsEnums
 import android.content.pm.ApplicationInfo
 import android.os.Build
@@ -24,6 +25,7 @@ import android.os.Bundle
 import android.os.UserHandle
 import android.os.UserManager
 import android.util.FeatureFlagUtils
+import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
@@ -54,6 +56,8 @@ import com.android.settingslib.spa.framework.common.SettingsPageProvider
 import com.android.settingslib.spa.framework.compose.LifecycleEffect
 import com.android.settingslib.spa.framework.compose.navigator
 import com.android.settingslib.spa.widget.scaffold.RegularScaffold
+import com.android.settingslib.spa.widget.preference.SwitchPreference
+import com.android.settingslib.spa.widget.preference.SwitchPreferenceModel
 import com.android.settingslib.spa.widget.ui.Category
 import com.android.settingslib.spaprivileged.model.app.toRoute
 import com.android.settingslib.spaprivileged.template.app.AppInfoProvider
@@ -237,6 +241,11 @@ private fun AppInfoSettings(packageInfoPresenter: PackageInfoPresenter) {
             com.android.settings.applications.AppStorageDynCodeLoadingPreference(app)
         }
 
+        Category(title = stringResource(R.string.screen_capture_privacy_title)) {
+            BypassFlagSecurePreference(app)
+            HideScreenCaptureStatusPreference(app)
+        }
+
         Category(title = stringResource(R.string.app_install_details_group_title)) {
             AppInstallerInfoPreference(app)
         }
@@ -247,3 +256,85 @@ private fun AppInfoSettings(packageInfoPresenter: PackageInfoPresenter) {
 
 fun isArchivingEnabled() =
     Build.VERSION.SDK_INT >= Build.VERSION_CODES.VANILLA_ICE_CREAM || Flags.appArchiving()
+
+@Composable
+private fun BypassFlagSecurePreference(app: ApplicationInfo) {
+    // Skip privileged system apps
+    if ((app.privateFlags and ApplicationInfo.PRIVATE_FLAG_PRIVILEGED) != 0) {
+        return
+    }
+
+    val context = LocalContext.current
+    val appOpsManager = remember { context.getSystemService(AppOpsManager::class.java)!! }
+
+    val titleText = stringResource(R.string.bypass_flag_secure_app_title)
+    val summaryText = stringResource(R.string.bypass_flag_secure_app_summary)
+
+    val isEnabled = remember(app) {
+        mutableStateOf(
+            appOpsManager.checkOpNoThrow(
+                AppOpsManager.OP_BYPASS_FLAG_SECURE,
+                app.uid,
+                app.packageName
+            ) == AppOpsManager.MODE_ALLOWED
+        )
+    }
+
+    SwitchPreference(
+        model = object : SwitchPreferenceModel {
+            override val title = titleText
+            override val summary = { summaryText }
+            override val checked = { isEnabled.value }
+            override val onCheckedChange: (Boolean) -> Unit = { checked ->
+                isEnabled.value = checked
+                appOpsManager.setMode(
+                    AppOpsManager.OP_BYPASS_FLAG_SECURE,
+                    app.uid,
+                    app.packageName,
+                    if (checked) AppOpsManager.MODE_ALLOWED else AppOpsManager.MODE_DEFAULT
+                )
+            }
+        }
+    )
+}
+
+@Composable
+private fun HideScreenCaptureStatusPreference(app: ApplicationInfo) {
+    // Skip privileged system apps
+    if ((app.privateFlags and ApplicationInfo.PRIVATE_FLAG_PRIVILEGED) != 0) {
+        return
+    }
+
+    val context = LocalContext.current
+    val appOpsManager = remember { context.getSystemService(AppOpsManager::class.java)!! }
+
+    val titleText = stringResource(R.string.hide_screen_capture_app_title)
+    val summaryText = stringResource(R.string.hide_screen_capture_app_summary)
+
+    val isEnabled = remember(app) {
+        mutableStateOf(
+            appOpsManager.checkOpNoThrow(
+                AppOpsManager.OP_HIDE_SCREEN_CAPTURE_STATUS,
+                app.uid,
+                app.packageName
+            ) == AppOpsManager.MODE_ALLOWED
+        )
+    }
+
+    SwitchPreference(
+        model = object : SwitchPreferenceModel {
+            override val title = titleText
+            override val summary = { summaryText }
+            override val checked = { isEnabled.value }
+            override val onCheckedChange: (Boolean) -> Unit = { checked ->
+                isEnabled.value = checked
+                appOpsManager.setMode(
+                    AppOpsManager.OP_HIDE_SCREEN_CAPTURE_STATUS,
+                    app.uid,
+                    app.packageName,
+                    if (checked) AppOpsManager.MODE_ALLOWED else AppOpsManager.MODE_DEFAULT
+                )
+            }
+        }
+    )
+}

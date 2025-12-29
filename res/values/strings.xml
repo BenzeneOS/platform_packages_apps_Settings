@@ -15788,4 +15788,12 @@
     <string name="battery_spoof_global_summary_off">Showing real battery level</string>
     <string name="battery_spoof_global_summary_on">Showing %d%% to all apps</string>
     <string name="battery_spoof_global_footer">Set a default battery level shown to all apps. Individual apps can override this in their app info settings.</string>
+
+    <!-- Screen capture privacy -->
+    <string name="screen_capture_privacy_title">Screen capture</string>
+    <string name="screen_capture_privacy_summary">Control secure screen bypass and capture detection</string>
+    <string name="bypass_flag_secure_title">Bypass secure screen protection</string>
+    <string name="bypass_flag_secure_summary">Allow screenshots and recording of apps that block them</string>
+    <string name="bypass_flag_secure_app_title">Bypass secure screen</string>
+    <string name="bypass_flag_secure_app_summary">Allow screenshots for this app even if it blocks them</string>
 </resources>

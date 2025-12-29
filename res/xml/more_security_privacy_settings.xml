@@ -119,17 +119,11 @@
             settings:controller="com.android.settings.privacy.ClipboardAutoClearEnabledController"/>
 
         <!-- Screen capture privacy -->
-        <SwitchPreferenceCompat
-            android:key="disable_secure_windows"
-            android:title="@string/bypass_flag_secure_title"
-            android:summary="@string/bypass_flag_secure_summary"
-            settings:controller="com.android.settings.privacy.BypassFlagSecureController"/>
-
-        <SwitchPreferenceCompat
-            android:key="hide_screen_capture_status"
-            android:title="@string/hide_screen_capture_title"
-            android:summary="@string/hide_screen_capture_summary"
-            settings:controller="com.android.settings.privacy.HideScreenCaptureStatusController"/>
+        <Preference
+            android:key="screen_capture_privacy"
+            android:title="@string/screen_capture_privacy_title"
+            android:summary="@string/screen_capture_privacy_summary"
+            android:fragment="com.android.settings.privacy.ScreenCaptureSettingsFragment"/>
 
         <!-- Hide app list -->
         <Preference
