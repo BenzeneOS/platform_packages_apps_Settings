@@ -20,6 +20,7 @@
     xmlns:settings="http://schemas.android.com/apk/res-auto"
     android:title="@string/gesture_preference_title">
 
+    <!-- Fingerprint swipe (hidden on devices without rear fingerprint) -->
     <Preference
         android:key="gesture_swipe_down_fingerprint_input_summary"
         android:title="@string/fingerprint_swipe_for_notifications_title"
@@ -27,6 +28,7 @@
         settings:searchable="false"
         settings:controller="com.android.settings.gestures.SwipeToNotificationPreferenceController" />
 
+    <!-- Power button actions -->
     <Preference
         android:key="gesture_double_tap_power_input_summary"
         android:title="@string/double_tap_power_title"
@@ -35,39 +37,13 @@
         settings:controller="com.android.settings.gestures.DoubleTapPowerPreferenceController" />
 
     <Preference
-        android:key="double_tap_sleep"
-        android:title="@string/double_tap_to_sleep_title"
-        android:summary="@string/double_tap_to_sleep_summary"
-        android:fragment="com.android.settings.gestures.DoubleTapSleepSettings"
-        settings:controller="com.android.settings.gestures.DoubleTapSleepPreferenceController" />
-
-    <SwitchPreferenceCompat
-        android:key="volume_wake"
-        android:title="@string/volume_wake_title"
-        android:summary="@string/volume_wake_summary"
-        settings:controller="com.android.settings.gestures.VolumeWakePreferenceController" />
-
-    <SwitchPreferenceCompat
-        android:key="volbtn_music_controls"
-        android:title="@string/volbtn_music_controls_title"
-        android:summary="@string/volbtn_music_controls_summary"
-        settings:controller="com.android.settings.sound.VolumeMusicControlsPreferenceController" />
-
-    <ListPreference
-        android:key="edge_long_swipe"
-        android:title="@string/edge_long_swipe_title"
-        android:entries="@array/edge_long_swipe_action_entries"
-        android:entryValues="@array/edge_long_swipe_action_values"
-        android:defaultValue="0"
-        settings:controller="com.android.settings.gestures.EdgeLongSwipePreferenceController" />
-
-    <Preference
         android:key="gesture_double_twist_input_summary"
         android:title="@string/double_twist_for_camera_mode_title"
         android:fragment="com.android.settings.gestures.DoubleTwistGestureSettings"
         settings:searchable="false"
         settings:controller="com.android.settings.gestures.DoubleTwistPreferenceController" />
 
+    <!-- Navigation -->
     <Preference
         android:key="gesture_system_navigation_input_summary"
         android:title="@string/system_navigation_title"
@@ -81,6 +57,15 @@
         android:fragment="com.android.settings.gestures.OneHandedSettings"
         settings:controller="com.android.settings.gestures.OneHandedEnablePreferenceController" />
 
+    <ListPreference
+        android:key="edge_long_swipe"
+        android:title="@string/edge_long_swipe_title"
+        android:entries="@array/edge_long_swipe_action_entries"
+        android:entryValues="@array/edge_long_swipe_action_values"
+        android:defaultValue="0"
+        settings:controller="com.android.settings.gestures.EdgeLongSwipePreferenceController" />
+
+    <!-- Screen/Ambient gestures -->
     <Preference
         android:key="gesture_tap_screen_input_summary"
         android:title="@string/ambient_display_tap_screen_title"
@@ -103,6 +88,20 @@
         settings:controller="com.android.settings.gestures.PickupGesturePreferenceController" />
 
     <Preference
+        android:key="double_tap_sleep"
+        android:title="@string/double_tap_to_sleep_title"
+        android:summary="@string/double_tap_to_sleep_summary"
+        android:fragment="com.android.settings.gestures.DoubleTapSleepSettings"
+        settings:controller="com.android.settings.gestures.DoubleTapSleepPreferenceController" />
+
+    <SwitchPreferenceCompat
+        android:key="three_finger_screenshot"
+        android:title="@string/three_finger_screenshot_title"
+        android:summary="@string/three_finger_screenshot_summary"
+        settings:controller="com.android.settings.gestures.ThreeFingerScreenshotPreferenceController" />
+
+    <!-- Other -->
+    <Preference
         android:key="gesture_power_menu_summary"
         android:title="@string/power_menu_setting_name"
         android:fragment="com.android.settings.gestures.PowerMenuSettings"
@@ -113,4 +112,18 @@
         android:title="@string/gesture_prevent_ringing_screen_title"
         android:fragment="com.android.settings.gestures.PreventRingingGestureSettings"
         settings:controller="com.android.settings.gestures.PreventRingingParentPreferenceController" />
+
+    <!-- Volume button controls -->
+    <SwitchPreferenceCompat
+        android:key="volume_wake"
+        android:title="@string/volume_wake_title"
+        android:summary="@string/volume_wake_summary"
+        settings:controller="com.android.settings.gestures.VolumeWakePreferenceController" />
+
+    <SwitchPreferenceCompat
+        android:key="volbtn_music_controls"
+        android:title="@string/volbtn_music_controls_title"
+        android:summary="@string/volbtn_music_controls_summary"
+        settings:controller="com.android.settings.sound.VolumeMusicControlsPreferenceController" />
+
 </PreferenceScreen>

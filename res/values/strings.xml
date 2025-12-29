@@ -15114,4 +15114,8 @@
     <string name="action_split_screen">Split screen</string>
     <string name="action_kill_app">Kill foreground app</string>
     <string name="action_play_pause_music">Play/pause music</string>
+
+    <!-- Three-finger screenshot gesture -->
+    <string name="three_finger_screenshot_title">Three-finger screenshot</string>
+    <string name="three_finger_screenshot_summary">Swipe down with three fingers to take a screenshot</string>
 </resources>
