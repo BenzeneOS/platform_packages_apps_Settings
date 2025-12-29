@@ -32,9 +32,21 @@
         settings:userRestriction="no_config_brightness"
         settings:controller="com.android.settings.display.AutoBrightnessDetailPreferenceController"/>
 
+    <SwitchPreferenceCompat
+        android:key="qs_show_auto_brightness"
+        android:title="@string/qs_show_auto_brightness_title"
+        android:summary="@string/qs_show_auto_brightness_summary"
+        android:defaultValue="true"
+        settings:controller="com.android.settings.display.QsShowAutoBrightnessPreferenceController" />
+
+    <Preference
+        android:key="reset_auto_brightness"
+        android:title="@string/reset_auto_brightness_title"
+        android:summary="@string/reset_auto_brightness_summary"
+        settings:controller="com.android.settings.display.ResetAutoBrightnessPreferenceController" />
+
     <com.android.settingslib.widget.FooterPreference
         android:key="auto_brightness_footer"
         android:title="@string/auto_brightness_description"
         settings:searchable="false" />
-
 </PreferenceScreen>
