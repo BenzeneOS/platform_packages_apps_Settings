@@ -33,7 +33,7 @@ public class BatterySettingsFeatureProviderGoogleImpl extends BatterySettingsFea
             int pluggedStatus,
             long chargeRemainingTimeMs,
             long currentTimeMs) {
-        if (batteryLevel >= BatteryChargeLimit.CHARGE_LEVEL) {
+        if (batteryLevel >= BatteryChargeLimit.getChargeStopLevel(context)) {
             return context.getString(R.string.charging_optimization_reach_limit_remaining_time_label);
         }
         if (chargeRemainingTimeMs <= 0) {
@@ -53,7 +53,7 @@ public class BatterySettingsFeatureProviderGoogleImpl extends BatterySettingsFea
             String batteryPercentageString,
             long chargeRemainingTimeMs,
             long currentTimeMs) {
-        if (batteryLevel >= BatteryChargeLimit.CHARGE_LEVEL) {
+        if (batteryLevel >= BatteryChargeLimit.getChargeStopLevel(context)) {
             return context.getString(R.string.charging_optimization_reach_limit_charge_label,
                     batteryPercentageString);
         }
