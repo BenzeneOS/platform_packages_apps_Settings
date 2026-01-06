@@ -16,15 +16,16 @@
 
 package com.android.settings.fuelgauge
 
+import android.app.AlertDialog
 import android.content.Context
 import android.ext.settings.ExtSettings
+import android.view.ContextThemeWrapper
 import android.view.LayoutInflater
-import android.widget.SeekBar
 import android.widget.TextView
 import androidx.preference.Preference
 import com.android.settings.R
 import com.android.settings.core.BasePreferenceController
-import com.google.android.material.dialog.MaterialAlertDialogBuilder
+import com.google.android.material.slider.Slider
 
 class BatterySpoofLevelController(
     context: Context,
@@ -54,28 +55,24 @@ class BatterySpoofLevelController(
         val context = preference.context
         val currentLevel = ExtSettings.BATTERY_SPOOF_LEVEL.get(context)
 
-        val view = LayoutInflater.from(context).inflate(R.layout.battery_spoof_dialog, null)
-        val seekBar = view.findViewById<SeekBar>(R.id.battery_spoof_seekbar)
+        val themedContext = ContextThemeWrapper(context, com.google.android.material.R.style.Theme_Material3_DynamicColors_DayNight)
+        val view = LayoutInflater.from(themedContext).inflate(R.layout.battery_spoof_dialog, null)
+        val slider = view.findViewById<Slider>(R.id.battery_spoof_seekbar)
         val valueText = view.findViewById<TextView>(R.id.battery_spoof_value)
 
-        // SeekBar max is 99 (0-99), representing 1-100%
-        val initialProgress = if (currentLevel >= 1) currentLevel - 1 else 99
-        seekBar.progress = initialProgress
-        valueText.text = "${initialProgress + 1}%"
+        val initialValue = if (currentLevel >= 1) currentLevel.toFloat() else 100f
+        slider.value = initialValue
+        valueText.text = "${initialValue.toInt()}%"
 
-        seekBar.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
-            override fun onProgressChanged(seekBar: SeekBar, progress: Int, fromUser: Boolean) {
-                valueText.text = "${progress + 1}%"
-            }
-            override fun onStartTrackingTouch(seekBar: SeekBar) {}
-            override fun onStopTrackingTouch(seekBar: SeekBar) {}
-        })
+        slider.addOnChangeListener { _, value, _ ->
+            valueText.text = "${value.toInt()}%"
+        }
 
-        MaterialAlertDialogBuilder(context, R.style.Theme_AlertDialog_SettingsLib_Expressive)
+        AlertDialog.Builder(context, android.R.style.ThemeOverlay_Material_Dialog_Alert)
             .setTitle(R.string.battery_spoof_level_title)
             .setView(view)
             .setPositiveButton(android.R.string.ok) { _, _ ->
-                ExtSettings.BATTERY_SPOOF_LEVEL.put(context, seekBar.progress + 1)
+                ExtSettings.BATTERY_SPOOF_LEVEL.put(context, slider.value.toInt())
                 updateState(preference)
             }
             .setNegativeButton(android.R.string.cancel, null)

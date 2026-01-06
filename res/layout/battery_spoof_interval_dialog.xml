@@ -15,33 +15,32 @@
     limitations under the License.
 -->
 
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:padding="12dp">
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="24dp">
 
-    <LinearLayout
-        android:id="@+id/container"
-        android:layout_width="match_parent"
-        android:layout_height="64dp"
-        android:gravity="center_horizontal|center_vertical"
-        android:orientation="vertical">
+    <TextView
+        android:id="@+id/interval_value"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:textSize="32sp"
+        android:textColor="?android:attr/colorAccent"
+        android:text="60s" />
 
-        <TextView
-            android:id="@+id/interval_value"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:textAppearanceLarge" />
-
-    </LinearLayout>
-
-    <SeekBar
+    <com.google.android.material.slider.Slider
         android:id="@+id/interval_seekbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/container"
-        android:padding="8dp"
-        android:max="290"
-        android:progress="50" />
+        android:layout_marginTop="16dp"
+        android:valueFrom="10"
+        android:valueTo="300"
+        android:value="60"
+        android:stepSize="1"
+        app:labelBehavior="gone"
+        app:tickVisible="false" />
 
-</RelativeLayout>
+</LinearLayout>
