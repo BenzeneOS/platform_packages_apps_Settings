@@ -15787,6 +15787,43 @@
     <string name="battery_spoof_global_summary_off">Showing real battery level</string>
     <string name="battery_spoof_global_summary_on">Showing %d%% to all apps</string>
     <string name="battery_spoof_global_footer">Set a default battery level shown to all apps. Individual apps can override this in their app info settings.</string>
+    <string name="battery_spoof_toggle_label">Show fake battery level</string>
+    <string name="battery_spoof_disable">Use real</string>
+
+    <!-- Battery spoofing settings fragment -->
+    <string name="battery_spoof_settings_title">Battery spoofing</string>
+    <string name="battery_spoof_level_category">Battery level</string>
+    <string name="battery_spoof_level_title">Spoofed level</string>
+    <string name="battery_spoof_level_summary_on">Reporting %d%% to apps</string>
+    <string name="battery_spoof_level_summary_off">Showing real battery level</string>
+    <string name="battery_spoof_jitter_title">Level jitter</string>
+    <string name="battery_spoof_jitter_summary">Randomize level by ±%d%%</string>
+    <string name="battery_spoof_jitter_summary_off">No jitter</string>
+    <string name="battery_spoof_jitter_value_off">Off</string>
+    <string name="battery_spoof_jitter_interval_title">Jitter refresh interval</string>
+    <string name="battery_spoof_jitter_interval_summary">Change jitter every %d seconds</string>
+    <string name="battery_spoof_hide_category">Spoof information</string>
+    <string name="battery_spoof_charging_title">Charging status</string>
+    <string name="battery_spoof_health_title">Health status</string>
+    <string name="battery_spoof_hide_metrics_title">Hide battery metrics</string>
+    <string name="battery_spoof_hide_metrics_summary">Hide temperature, voltage, current, and cycle count</string>
+    <string name="battery_spoof_footer_full">Apps can determine your charging state, power source, and detailed battery metrics without any permissions. These settings let you control what information apps receive.</string>
+    <string name="battery_spoof_global_summary_level">Level: %d%%</string>
+    <string name="battery_spoof_global_summary_spoofing">spoofing info</string>
+    <!-- Charging status dropdown entries -->
+    <string name="battery_spoof_charging_off">Show real</string>
+    <string name="battery_spoof_charging_discharging">Discharging</string>
+    <string name="battery_spoof_charging_ac">Charging (AC)</string>
+    <string name="battery_spoof_charging_usb">Charging (USB)</string>
+    <string name="battery_spoof_charging_wireless">Charging (Wireless)</string>
+    <!-- Health dropdown entries -->
+    <string name="battery_spoof_health_off">Show real</string>
+    <string name="battery_spoof_health_unknown">Unknown</string>
+    <string name="battery_spoof_health_good">Good</string>
+    <string name="battery_spoof_health_overheat">Overheat</string>
+    <string name="battery_spoof_health_dead">Dead</string>
+    <string name="battery_spoof_health_over_voltage">Over voltage</string>
+    <string name="battery_spoof_health_cold">Cold</string>
 
     <!-- Screen capture privacy -->
     <string name="screen_capture_privacy_title">Screen capture</string>

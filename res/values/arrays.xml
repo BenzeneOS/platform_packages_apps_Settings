@@ -1954,4 +1954,40 @@
         <item>90</item>
         <item>120</item>
     </string-array>
+
+    <!-- Battery spoof charging status options -->
+    <string-array name="battery_spoof_charging_entries">
+        <item>@string/battery_spoof_charging_off</item>
+        <item>@string/battery_spoof_charging_discharging</item>
+        <item>@string/battery_spoof_charging_ac</item>
+        <item>@string/battery_spoof_charging_usb</item>
+        <item>@string/battery_spoof_charging_wireless</item>
+    </string-array>
+    <string-array name="battery_spoof_charging_values" translatable="false">
+        <item>-1</item>
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>4</item>
+    </string-array>
+
+    <!-- Battery spoof health options -->
+    <string-array name="battery_spoof_health_entries">
+        <item>@string/battery_spoof_health_off</item>
+        <item>@string/battery_spoof_health_unknown</item>
+        <item>@string/battery_spoof_health_good</item>
+        <item>@string/battery_spoof_health_overheat</item>
+        <item>@string/battery_spoof_health_dead</item>
+        <item>@string/battery_spoof_health_over_voltage</item>
+        <item>@string/battery_spoof_health_cold</item>
+    </string-array>
+    <string-array name="battery_spoof_health_values" translatable="false">
+        <item>-1</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>7</item>
+    </string-array>
 </resources>
