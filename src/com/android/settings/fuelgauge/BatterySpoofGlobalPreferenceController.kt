@@ -16,15 +16,13 @@
 
 package com.android.settings.fuelgauge
 
+import android.app.settings.SettingsEnums
 import android.content.Context
 import android.ext.settings.ExtSettings
-import android.view.LayoutInflater
-import android.widget.SeekBar
-import android.widget.TextView
-import androidx.appcompat.app.AlertDialog
 import androidx.preference.Preference
 import com.android.settings.R
 import com.android.settings.core.BasePreferenceController
+import com.android.settings.core.SubSettingLauncher
 
 class BatterySpoofGlobalPreferenceController(
     context: Context,
@@ -35,10 +33,22 @@ class BatterySpoofGlobalPreferenceController(
 
     override fun updateState(preference: Preference) {
         val level = ExtSettings.BATTERY_SPOOF_LEVEL.get(mContext)
-        preference.summary = if (level >= 0) {
-            mContext.getString(R.string.battery_spoof_global_summary_on, level)
-        } else {
+        val spoofCharging = ExtSettings.BATTERY_SPOOF_CHARGING.get(mContext)
+        val spoofHealth = ExtSettings.BATTERY_SPOOF_HEALTH.get(mContext)
+        val hideMetrics = ExtSettings.BATTERY_SPOOF_HIDE_METRICS.get(mContext)
+
+        val features = mutableListOf<String>()
+        if (level >= 0) {
+            features.add(mContext.getString(R.string.battery_spoof_global_summary_level, level))
+        }
+        if (spoofCharging >= 0 || spoofHealth >= 0 || hideMetrics) {
+            features.add(mContext.getString(R.string.battery_spoof_global_summary_spoofing))
+        }
+
+        preference.summary = if (features.isEmpty()) {
             mContext.getString(R.string.battery_spoof_global_summary_off)
+        } else {
+            features.joinToString(", ")
         }
     }
 
@@ -46,42 +56,13 @@ class BatterySpoofGlobalPreferenceController(
         if (preferenceKey != preference.key) {
             return false
         }
-        showConfigDialog(preference)
+
+        SubSettingLauncher(preference.context)
+            .setDestination(BatterySpoofSettingsFragment::class.java.name)
+            .setTitleRes(R.string.battery_spoof_settings_title)
+            .setSourceMetricsCategory(SettingsEnums.FUELGAUGE_BATTERY_HISTORY_DETAIL)
+            .launch()
+
         return true
-    }
-
-    private fun showConfigDialog(preference: Preference) {
-        val currentLevel = ExtSettings.BATTERY_SPOOF_LEVEL.get(mContext)
-
-        val view = LayoutInflater.from(mContext).inflate(R.layout.battery_spoof_dialog, null)
-        val seekBar = view.findViewById<SeekBar>(R.id.battery_spoof_seekbar)
-        val valueText = view.findViewById<TextView>(R.id.battery_spoof_value)
-
-        val initialValue = if (currentLevel >= 0) currentLevel else 100
-        seekBar.max = 100
-        seekBar.progress = initialValue
-        valueText.text = "$initialValue%"
-
-        seekBar.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
-            override fun onProgressChanged(seekBar: SeekBar, progress: Int, fromUser: Boolean) {
-                valueText.text = "$progress%"
-            }
-            override fun onStartTrackingTouch(seekBar: SeekBar) {}
-            override fun onStopTrackingTouch(seekBar: SeekBar) {}
-        })
-
-        AlertDialog.Builder(mContext)
-            .setTitle(R.string.battery_spoof_global_title)
-            .setView(view)
-            .setPositiveButton(android.R.string.ok) { _, _ ->
-                ExtSettings.BATTERY_SPOOF_LEVEL.put(mContext, seekBar.progress)
-                updateState(preference)
-            }
-            .setNegativeButton(android.R.string.cancel, null)
-            .setNeutralButton(R.string.battery_spoof_option_real) { _, _ ->
-                ExtSettings.BATTERY_SPOOF_LEVEL.put(mContext, -1)
-                updateState(preference)
-            }
-            .show()
     }
 }

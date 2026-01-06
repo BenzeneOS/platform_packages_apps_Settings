@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Copyright (C) 2025 Amaan Qureshi <contact@amaanq.com>
+
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+
+         http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+-->
+
+<PreferenceScreen
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:settings="http://schemas.android.com/apk/res-auto"
+    android:title="@string/battery_spoof_settings_title">
+
+    <!-- Battery Level Section -->
+    <PreferenceCategory
+        android:key="battery_spoof_level_category"
+        android:title="@string/battery_spoof_level_category">
+
+        <Preference
+            android:key="battery_spoof_level"
+            android:title="@string/battery_spoof_level_title"
+            settings:controller="com.android.settings.fuelgauge.BatterySpoofLevelController" />
+
+        <Preference
+            android:key="battery_spoof_jitter"
+            android:title="@string/battery_spoof_jitter_title"
+            settings:controller="com.android.settings.fuelgauge.BatterySpoofJitterController" />
+
+        <Preference
+            android:key="battery_spoof_jitter_interval"
+            android:title="@string/battery_spoof_jitter_interval_title"
+            settings:controller="com.android.settings.fuelgauge.BatterySpoofJitterIntervalController" />
+
+    </PreferenceCategory>
+
+    <!-- Spoof Information Section -->
+    <PreferenceCategory
+        android:key="battery_spoof_hide_category"
+        android:title="@string/battery_spoof_hide_category">
+
+        <ListPreference
+            android:key="battery_spoof_charging"
+            android:title="@string/battery_spoof_charging_title"
+            android:entries="@array/battery_spoof_charging_entries"
+            android:entryValues="@array/battery_spoof_charging_values"
+            settings:controller="com.android.settings.fuelgauge.BatterySpoofChargingController" />
+
+        <ListPreference
+            android:key="battery_spoof_health"
+            android:title="@string/battery_spoof_health_title"
+            android:entries="@array/battery_spoof_health_entries"
+            android:entryValues="@array/battery_spoof_health_values"
+            settings:controller="com.android.settings.fuelgauge.BatterySpoofHealthController" />
+
+        <SwitchPreferenceCompat
+            android:key="battery_spoof_hide_metrics"
+            android:title="@string/battery_spoof_hide_metrics_title"
+            android:summary="@string/battery_spoof_hide_metrics_summary"
+            settings:controller="com.android.settings.fuelgauge.BatterySpoofHideMetricsController" />
+
+    </PreferenceCategory>
+
+    <com.android.settingslib.widget.FooterPreference
+        android:key="battery_spoof_footer"
+        android:title="@string/battery_spoof_footer_full"
+        android:selectable="false"
+        settings:searchable="false" />
+
+</PreferenceScreen>
