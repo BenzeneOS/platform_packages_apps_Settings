@@ -16,15 +16,16 @@
 
 package com.android.settings.fuelgauge
 
+import android.app.AlertDialog
 import android.content.Context
 import android.ext.settings.ExtSettings
+import android.view.ContextThemeWrapper
 import android.view.LayoutInflater
-import android.widget.SeekBar
 import android.widget.TextView
 import androidx.preference.Preference
 import com.android.settings.R
 import com.android.settings.core.BasePreferenceController
-import com.google.android.material.dialog.MaterialAlertDialogBuilder
+import com.google.android.material.slider.Slider
 
 class BatterySpoofJitterIntervalController(
     context: Context,
@@ -50,28 +51,23 @@ class BatterySpoofJitterIntervalController(
         val context = preference.context
         val currentValue = ExtSettings.BATTERY_SPOOF_JITTER_INTERVAL.get(context)
 
-        val view = LayoutInflater.from(context).inflate(R.layout.battery_spoof_interval_dialog, null)
-        val seekBar = view.findViewById<SeekBar>(R.id.interval_seekbar)
+        val themedContext = ContextThemeWrapper(context, com.google.android.material.R.style.Theme_Material3_DynamicColors_DayNight)
+        val view = LayoutInflater.from(themedContext).inflate(R.layout.battery_spoof_interval_dialog, null)
+        val slider = view.findViewById<Slider>(R.id.interval_seekbar)
         val valueText = view.findViewById<TextView>(R.id.interval_value)
 
-        // SeekBar max is 290 (0-290), representing 10-300 seconds
-        val initialProgress = currentValue - 10
-        seekBar.progress = initialProgress.coerceIn(0, 290)
+        slider.value = currentValue.toFloat().coerceIn(10f, 300f)
         valueText.text = "${currentValue}s"
 
-        seekBar.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
-            override fun onProgressChanged(seekBar: SeekBar, progress: Int, fromUser: Boolean) {
-                valueText.text = "${progress + 10}s"
-            }
-            override fun onStartTrackingTouch(seekBar: SeekBar) {}
-            override fun onStopTrackingTouch(seekBar: SeekBar) {}
-        })
+        slider.addOnChangeListener { _, value, _ ->
+            valueText.text = "${value.toInt()}s"
+        }
 
-        MaterialAlertDialogBuilder(context, R.style.Theme_AlertDialog_SettingsLib_Expressive)
+        AlertDialog.Builder(context, android.R.style.ThemeOverlay_Material_Dialog_Alert)
             .setTitle(R.string.battery_spoof_jitter_interval_title)
             .setView(view)
             .setPositiveButton(android.R.string.ok) { _, _ ->
-                ExtSettings.BATTERY_SPOOF_JITTER_INTERVAL.put(context, seekBar.progress + 10)
+                ExtSettings.BATTERY_SPOOF_JITTER_INTERVAL.put(context, slider.value.toInt())
                 updateState(preference)
             }
             .setNegativeButton(android.R.string.cancel, null)
