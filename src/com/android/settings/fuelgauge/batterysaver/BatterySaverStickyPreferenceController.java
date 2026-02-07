@@ -28,7 +28,7 @@ public class BatterySaverStickyPreferenceController extends TogglePreferenceCont
         return Settings.Global.getInt(
                         mContext.getContentResolver(),
                         Global.LOW_POWER_MODE_STICKY_AUTO_DISABLE_ENABLED,
-                        1)
+                        0)
                 == 1;
     }
 
@@ -64,7 +64,7 @@ public class BatterySaverStickyPreferenceController extends TogglePreferenceCont
                 Settings.Global.getInt(
                         mContext.getContentResolver(),
                         Global.LOW_POWER_MODE_STICKY_AUTO_DISABLE_ENABLED,
-                        1);
+                        0);
 
         ((TwoStatePreference) preference).setChecked(setting == 1);
         refreshSummary(preference);
