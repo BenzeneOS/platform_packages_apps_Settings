@@ -15943,6 +15943,15 @@
     <string name="wifi_password_copied">Password copied to clipboard</string>
     <string name="wifi_password_unavailable">Password not available</string>
 
+    <!-- Display rotation angles -->
+    <string name="display_rotation_title">Auto-rotate screen</string>
+    <string name="display_rotation_summary">Configure auto-rotate and allowed rotation angles</string>
+    <string name="display_rotation_angles_category">Allowed rotation angles</string>
+    <string name="display_rotation_0_title">0\u00b0 (portrait)</string>
+    <string name="display_rotation_90_title">90\u00b0 (landscape)</string>
+    <string name="display_rotation_180_title">180\u00b0 (inverted portrait)</string>
+    <string name="display_rotation_270_title">270\u00b0 (inverted landscape)</string>
+
     <!-- Navigation bar hint -->
     <string name="navigation_bar_hint_category_title">Navigation bar</string>
     <string name="navigation_bar_hint_title">Navigation hint</string>
