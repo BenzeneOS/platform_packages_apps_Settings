@@ -15315,6 +15315,10 @@
     <string name="notification_sound_vib_screen_on_title">Notification sound when screen on</string>
     <string name="notification_sound_vib_screen_on_summary">Play sound and vibration for notifications when the screen is on</string>
 
+    <!-- Allow app downgrade -->
+    <string name="allow_app_downgrade_title">Allow app downgrade</string>
+    <string name="allow_app_downgrade_summary">Allow installing older versions of apps. May cause crashes or data loss.</string>
+
     <!-- Navigation bar hint -->
     <string name="navigation_bar_hint_category_title">Navigation bar</string>
     <string name="navigation_bar_hint_title">Navigation hint</string>
