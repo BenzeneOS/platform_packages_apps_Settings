@@ -589,6 +589,7 @@ public class DevelopmentSettingsDashboardFragment extends RestrictedDashboardFra
         controllers.add(new KeepActivitiesPreferenceController(context));
         controllers.add(new BackgroundProcessLimitPreferenceController(context));
         controllers.add(new CachedAppsFreezerPreferenceController(context));
+        controllers.add(new AllowAppDowngradePreferenceController(context));
         controllers.add(new ShowFirstCrashDialogPreferenceController(context));
         controllers.add(new AppsNotRespondingPreferenceController(context));
         controllers.add(new NotificationChannelWarningsPreferenceController(context));

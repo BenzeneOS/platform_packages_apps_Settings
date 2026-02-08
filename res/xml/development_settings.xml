@@ -585,6 +585,11 @@
             android:title="@string/background_check_pref" />
 
         <SwitchPreferenceCompat
+            android:key="allow_app_downgrade"
+            android:title="@string/allow_app_downgrade_title"
+            android:summary="@string/allow_app_downgrade_summary" />
+
+        <SwitchPreferenceCompat
             android:key="show_first_crash_dialog"
             android:title="@string/show_first_crash_dialog"
             android:summary="@string/show_first_crash_dialog_summary" />
