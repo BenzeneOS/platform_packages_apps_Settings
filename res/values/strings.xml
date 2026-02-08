@@ -15952,6 +15952,10 @@
     <string name="display_rotation_180_title">180\u00b0 (inverted portrait)</string>
     <string name="display_rotation_270_title">270\u00b0 (inverted landscape)</string>
 
+    <!-- Notification sound when screen on -->
+    <string name="notification_sound_vib_screen_on_title">Notification sound when screen on</string>
+    <string name="notification_sound_vib_screen_on_summary">Play sound and vibration for notifications when the screen is on</string>
+
     <!-- Navigation bar hint -->
     <string name="navigation_bar_hint_category_title">Navigation bar</string>
     <string name="navigation_bar_hint_title">Navigation hint</string>

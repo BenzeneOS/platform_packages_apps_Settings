@@ -200,6 +200,13 @@
              settings:controller="com.android.settings.notification.SilentStatusBarPreferenceController"/>
 
         <SwitchPreferenceCompat
+            android:key="notification_sound_vib_screen_on"
+            android:order="25"
+            android:title="@string/notification_sound_vib_screen_on_title"
+            android:summary="@string/notification_sound_vib_screen_on_summary"
+            settings:controller="com.android.settings.notification.NotificationSoundScreenOnPreferenceController" />
+
+        <SwitchPreferenceCompat
             android:key="show_snooze_options"
             android:order="26"
             android:title="@string/snooze_options_title"
