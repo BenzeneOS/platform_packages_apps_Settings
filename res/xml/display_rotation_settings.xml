@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:settings="http://schemas.android.com/apk/res-auto"
+    android:key="display_rotation_settings"
+    android:title="@string/accelerometer_title">
+
+    <com.android.settingslib.widget.MainSwitchPreference
+        android:key="auto_rotate_main_switch"
+        android:title="@string/accelerometer_title" />
+
+    <PreferenceCategory
+        android:key="rotation_angles_category"
+        android:title="@string/display_rotation_angles_category">
+
+        <SwitchPreferenceCompat
+            android:key="rotation_0"
+            android:title="@string/display_rotation_0_title" />
+
+        <SwitchPreferenceCompat
+            android:key="rotation_90"
+            android:title="@string/display_rotation_90_title" />
+
+        <SwitchPreferenceCompat
+            android:key="rotation_180"
+            android:title="@string/display_rotation_180_title" />
+
+        <SwitchPreferenceCompat
+            android:key="rotation_270"
+            android:title="@string/display_rotation_270_title" />
+
+    </PreferenceCategory>
+
+</PreferenceScreen>

@@ -142,26 +142,13 @@
         android:title="@string/category_name_display_controls"
         android:order="-150">
 
-        <!--
-            Standard auto-rotation preference that will be shown when device state based
-            auto-rotation settings are NOT available.
-          -->
-        <SwitchPreferenceCompat
-            android:key="auto_rotate"
+        <com.android.settingslib.PrimarySwitchPreference
+            android:key="auto_rotate_entry"
             android:title="@string/accelerometer_title"
+            android:summary="@string/display_rotation_summary"
+            android:fragment="com.android.settings.display.DisplayRotationSettings"
             settings:keywords="@string/keywords_auto_rotate"
-            settings:controller="com.android.settings.display.AutoRotatePreferenceController"/>
-
-        <!--
-            Auto-rotation preference that will be shown when device state based auto-rotation
-            settings are available.
-          -->
-        <Preference
-            android:key="device_state_auto_rotate"
-            android:title="@string/accelerometer_title"
-            android:fragment="com.android.settings.display.DeviceStateAutoRotateDetailsFragment"
-            settings:keywords="@string/keywords_auto_rotate"
-            settings:controller="com.android.settings.display.DeviceStateAutoRotateOverviewController"/>
+            settings:controller="com.android.settings.display.AutoRotateEntryPreferenceController"/>
 
         <Preference
             android:key="screen_resolution"
