@@ -358,4 +358,45 @@ May cause unreliable service. Use at your own risk.
     <string name="cert_transparency_dl_footer">"Certificate Transparency (CT) is an Internet standard designed to enhance the security of digital certificates. It requires Certificate Authorities (CAs) to submit all issued certificates to a public log that records them, increasing transparency and accountability in the certificate issuance process.
 
 By maintaining a verifiable record of all certificates, CT makes it significantly harder for malicious actors to forge certificates or for CAs to mistakenly issue them. This helps protect apps from man-in-the-middle attacks and other security threats."</string>
+
+    <string name="pushcompat_title">PushCompat</string>
+    <string name="pushcompat_profile_paused">Paused. Apps appear here when the profile resumes.</string>
+    <string name="pushcompat_intro">PushCompat delivers push notifications without Google Play services</string>
+    <string name="pushcompat_status_pushcompat">PushCompat is handling push notifications.</string>
+    <string name="pushcompat_status_play_services">Google Play services is handling push notifications.</string>
+    <string name="pushcompat_banner_unavailable_title">PushCompat unavailable</string>
+    <string name="pushcompat_banner_connected_title">Connected</string>
+    <string name="pushcompat_banner_disconnected_title">Not connected</string>
+    <string name="pushcompat_banner_disconnected_summary">Push notifications may be delayed until the connection returns.</string>
+    <string name="pushcompat_banner_connecting_title">Connecting to relay</string>
+    <string name="pushcompat_banner_connecting_summary">PushCompat is trying to restore the connection.</string>
+    <string name="pushcompat_banner_connection_failed_title">Relay connection failed</string>
+    <string name="pushcompat_banner_connection_failed_summary">PushCompat can’t keep a stable connection to the relay.</string>
+    <string name="pushcompat_banner_stabilizing_title">Connected</string>
+    <string name="pushcompat_banner_stabilizing_summary">The relay connection is stabilizing.</string>
+    <plurals name="pushcompat_banner_unavailable_apps_title">
+        <item quantity="one">%d app can’t receive push notifications</item>
+        <item quantity="other">%d apps can’t receive push notifications</item>
+    </plurals>
+    <string name="pushcompat_banner_unavailable_apps_summary">Turn off the affected apps below, or make sure they’re installed, enabled, and compatible with PushCompat.</string>
+    <string name="pushcompat_banner_waiting_title">Waiting to register</string>
+    <string name="pushcompat_banner_waiting_summary">Some selected apps aren’t ready to receive messages yet.</string>
+    <string name="pushcompat_banner_play_services_title">Google Play services</string>
+    <string name="pushcompat_retry">Retry</string>
+    <string name="pushcompat_relay_server_title">Relay server</string>
+    <string name="pushcompat_relay_server_url">Server URL</string>
+    <string name="pushcompat_invalid_relay_url">Enter a valid HTTPS URL</string>
+    <string name="pushcompat_apps_title">Apps</string>
+    <string name="pushcompat_apps_empty">No compatible apps found.</string>
+    <string name="pushcompat_app_waiting">%1$s · Waiting for relay</string>
+    <string name="pushcompat_app_unavailable">%1$s · Push unavailable</string>
+    <string name="pushcompat_app_unifiedpush">%1$s · UnifiedPush</string>
+    <string name="pushcompat_on_device_title">On-device delivery</string>
+    <string name="pushcompat_on_device_summary">On-device doesn’t need the relay server, but Google sees your phone’s real IP address instead of the bridge’s whenever PushCompat is connected.</string>
+    <string name="pushcompat_deliveries_title">Recent deliveries</string>
+    <string name="pushcompat_deliveries_empty">Nothing delivered yet.</string>
+    <string name="pushcompat_delivery_summary">%1$s\n%2$s: %3$s</string>
+    <string name="pushcompat_delivery_not_delivered">Not delivered</string>
+    <string name="pushcompat_unavailable">PushCompat isn’t available.</string>
+    <string name="pushcompat_footer">When Google Play services is unavailable, PushCompat receives Firebase and UnifiedPush messages from the relay server. When Google Play services is present, it handles Firebase push notifications while PushCompat continues serving UnifiedPush apps.</string>
 </resources>

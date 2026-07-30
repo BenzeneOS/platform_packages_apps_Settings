@@ -59,6 +59,13 @@
             android:order="4"
             android:title="@string/notification_bundle_title"
             settings:controller="com.android.settings.notification.BundlePreferenceController" />
+
+        <Preference
+            android:fragment="com.android.settings.notification.pushcompat.PushCompatSettings"
+            android:key="pushcompat"
+            android:order="5"
+            android:title="@string/pushcompat_title"
+            settings:controller="com.android.settings.notification.pushcompat.PushCompatEntryPreferenceController" />
     </PreferenceCategory>
 
     <PreferenceCategory

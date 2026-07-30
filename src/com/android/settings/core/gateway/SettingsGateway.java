@@ -155,6 +155,7 @@ import com.android.settings.location.LocationSettings;
 import com.android.settings.location.WifiScanningFragment;
 import com.android.settings.network.MobileNetworkListFragment;
 import com.android.settings.network.NetworkDashboardFragment;
+import com.android.settings.notification.pushcompat.PushCompatSettings;
 import com.android.settings.network.NetworkProviderSettings;
 import com.android.settings.network.apn.ApnEditor;
 import com.android.settings.network.apn.ApnSettings;
@@ -240,6 +241,7 @@ public class SettingsGateway {
             HideAppListSettings.class.getName(),
             HideAppListWhitelistSettings.class.getName(),
             StatusBarSettings.class.getName(),
+            PushCompatSettings.class.getName(),
             NetworkTrafficSettings.class.getName(),
             DoubleTapSleepSettings.class.getName(),
             AppSpecificRefreshRateFragment.class.getName(),
