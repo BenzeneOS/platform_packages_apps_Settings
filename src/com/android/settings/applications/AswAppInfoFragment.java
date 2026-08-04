@@ -201,7 +201,7 @@ public abstract class AswAppInfoFragment<T extends AppSwitch>
             switch (id) {
                 case ID_DEFAULT -> asw.setUseDefaultValue(ed);
                 case ID_ON, ID_OFF -> asw.set(ed, id == ID_ON);
-                default -> throw new IllegalStateException();
+                default -> onExtraEntrySelected(ed, id);
             }
 
             ed.setKillUidAfterApply(shouldKillUidAfterChange());
@@ -216,6 +216,10 @@ public abstract class AswAppInfoFragment<T extends AppSwitch>
         };
 
         completeStateChange(id, asw.get(ctx, userId, appInfo, ps), r);
+    }
+
+    protected void onExtraEntrySelected(GosPackageState.Editor ed, int id) {
+        throw new IllegalStateException();
     }
 
     protected void completeStateChange(int newEntryId, boolean curValue, Runnable stateChangeAction) {

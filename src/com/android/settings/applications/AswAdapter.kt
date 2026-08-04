@@ -21,9 +21,10 @@ abstract class AswAdapter<T : AppSwitch> {
 
     enum class Category {
         ExploitProtection,
+        PrivilegedAccess,
     }
 
-    fun getCategory(): Category = Category.ExploitProtection
+    open fun getCategory(): Category = Category.ExploitProtection
 
     fun getPreferenceSummary(ctx: Context, appInfo: ApplicationInfo): CharSequence {
         val asw = getAppSwitch()

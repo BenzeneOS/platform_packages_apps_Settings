@@ -229,6 +229,8 @@ private fun AppInfoSettings(packageInfoPresenter: PackageInfoPresenter) {
             UsageDataAppListProvider.InfoPageEntryItem(app)
         }
 
+        com.android.settings.applications.BenzenedRootCategory(app)
+
         Category(title = stringResource(R.string.exploit_protection_category_title)) {
             AppExploitProtectionCompatModeSwitchPreference(app, packageInfoPresenter)
             com.android.settings.applications.AppHardenedMallocPreference(app)

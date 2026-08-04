@@ -150,6 +150,7 @@ open class SettingsSpaEnvironment(context: Context) : SpaEnvironment(context) {
             }
             .plus(
                 arrayOf(
+                    com.android.settings.applications.AswAdapterBenzenedRoot.makeAppListPageProvider(),
                     com.android.settings.applications.AswAdapterUseHardenedMalloc.makeAppListPageProvider(),
                     com.android.settings.applications.AswAdapterUseExtendedVaSpace.makeAppListPageProvider(),
                     com.android.settings.applications.AswAdapterNativeDebugging.makeAppListPageProvider(),

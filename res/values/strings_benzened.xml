@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="benzened_root">Root access</string>
+    <string name="benzened_root_category_title">Privileged access</string>
+    <string name="benzened_root_off">Off</string>
+    <string name="benzened_root_standard">Standard</string>
+    <string name="benzened_root_unrestricted">Unrestricted (advanced)</string>
+    <string name="benzened_root_footer">Standard root can read, modify and delete app and media files, and read any other app\'s private data. It cannot modify protected OS configuration files, take on another app\'s identity, load kernel modules, write to raw partitions, remount system partitions, or change SELinux enforcement.\n\nUnrestricted root removes those limits and disables SELinux enforcement for this app. Only use it if an app fails under Standard.\n\nOnly grant root to apps you fully trust.</string>
+</resources>

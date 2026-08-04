@@ -56,7 +56,10 @@ android_library {
         "src/**/*.java",
         "src/**/*.kt",
         "src/**/*.aidl",
-    ],
+    ] + select(soong_config_variable("benzeneos", "benzened"), {
+        true: ["benzened/enabled/**/*.kt"],
+        default: ["benzened/disabled/**/*.kt"],
+    }),
     exclude_srcs: [
         "src/com/android/settings/biometrics/fingerprint2/lib/**/*.kt",
     ],
