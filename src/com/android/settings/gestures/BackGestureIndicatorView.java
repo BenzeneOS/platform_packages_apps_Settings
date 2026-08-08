@@ -87,6 +87,11 @@ public class BackGestureIndicatorView extends LinearLayout {
         indicator.setWidth(width);
     }
 
+    public void setIndicatorRegion(int topPercent, int bottomPercent, boolean leftIndicator) {
+        BackGestureIndicatorDrawable indicator = leftIndicator ? mLeftDrawable : mRightDrawable;
+        indicator.setRegion(topPercent, bottomPercent);
+    }
+
     public WindowManager.LayoutParams getLayoutParams(
             WindowManager.LayoutParams parentWindowAttributes) {
         int copiedFlags = (parentWindowAttributes.flags

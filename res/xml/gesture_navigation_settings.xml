@@ -62,6 +62,22 @@
     </PreferenceCategory>
 
     <PreferenceCategory
+        android:key="back_gesture_regions_category"
+        android:persistent="false"
+        android:title="@string/back_gesture_regions_title">
+
+        <com.android.settings.gestures.BackGestureRegionPreference
+            android:key="gesture_left_back_region"
+            android:title="@string/left_edge"
+            android:persistent="false" />
+
+        <com.android.settings.gestures.BackGestureRegionPreference
+            android:key="gesture_right_back_region"
+            android:title="@string/right_edge"
+            android:persistent="false" />
+    </PreferenceCategory>
+
+    <PreferenceCategory
         android:key="back_sensitivity_category"
         android:persistent="false"
         android:title="@string/back_sensitivity_dialog_title">
@@ -88,4 +104,3 @@
         android:title="@string/back_sensitivity_dialog_message"
         settings:searchable="false"/>
 </PreferenceScreen>
-

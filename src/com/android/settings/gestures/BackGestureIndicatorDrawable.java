@@ -40,12 +40,16 @@ public class BackGestureIndicatorDrawable extends Drawable {
     private static final String TAG = "BackGestureIndicatorDrawable";
 
     private static final int MSG_SET_INDICATOR_WIDTH = 1;
+    private static final int MSG_SET_INDICATOR_REGION = 2;
     private static final int MSG_HIDE_INDICATOR = 3;
 
     private static final long ANIMATION_DURATION_MS = 200L;
     private static final long HIDE_DELAY_MS = 700L;
 
     private static final int ALPHA_MAX = 64;
+
+    private static final int MIN_PERCENT = 0;
+    private static final int MAX_PERCENT = 100;
 
     private Context mContext;
 
@@ -55,6 +59,10 @@ public class BackGestureIndicatorDrawable extends Drawable {
     private float mFinalWidth;
     private float mCurrentWidth;
     private float mWidthChangePerMs;
+
+    // Vertical bounds of the active region. 0 is the top of the display and 100 is the bottom.
+    private int mTopPercent = MIN_PERCENT;
+    private int mBottomPercent = MAX_PERCENT;
 
     private TimeAnimator mTimeAnimator = new TimeAnimator();
 
@@ -68,6 +76,11 @@ public class BackGestureIndicatorDrawable extends Drawable {
                     mWidthChangePerMs = Math.abs(mCurrentWidth - mFinalWidth)
                             / ANIMATION_DURATION_MS;
                     mTimeAnimator.start();
+                    break;
+                case MSG_SET_INDICATOR_REGION:
+                    mTopPercent = msg.arg1;
+                    mBottomPercent = msg.arg2;
+                    invalidateSelf();
                     break;
                 case MSG_HIDE_INDICATOR:
                     mCurrentWidth = mFinalWidth;
@@ -117,8 +130,9 @@ public class BackGestureIndicatorDrawable extends Drawable {
         mPaint.setColor(mContext.getResources().getColor(R.color.back_gesture_indicator));
         mPaint.setAlpha(ALPHA_MAX);
 
-        final int top = 0;
-        final int bottom = canvas.getHeight();
+        final int height = canvas.getHeight();
+        final int top = percentToPixel(mTopPercent, height);
+        final int bottom = percentToPixel(mBottomPercent, height);
         final int width = (int) mCurrentWidth;
 
         Rect rect = new Rect(0, top, width, bottom);
@@ -158,5 +172,35 @@ public class BackGestureIndicatorDrawable extends Drawable {
     @VisibleForTesting
     public int getWidth() {
         return (int) mFinalWidth;
+    }
+
+    /**
+     * Sets the vertical bounds of the active region as top-origin percentages of the indicator
+     * height, so the drawn band matches the screen area that can trigger the back gesture.
+     */
+    public void setRegion(int topPercent, int bottomPercent) {
+        final int firstPercent = clamp(topPercent);
+        final int secondPercent = clamp(bottomPercent);
+        mHandler.sendMessage(mHandler.obtainMessage(
+                MSG_SET_INDICATOR_REGION,
+                Math.min(firstPercent, secondPercent), Math.max(firstPercent, secondPercent)));
+    }
+
+    @VisibleForTesting
+    public int getTopPercent() {
+        return mTopPercent;
+    }
+
+    @VisibleForTesting
+    public int getBottomPercent() {
+        return mBottomPercent;
+    }
+
+    private static int clamp(int value) {
+        return Math.max(MIN_PERCENT, Math.min(MAX_PERCENT, value));
+    }
+
+    private static int percentToPixel(int percent, int size) {
+        return (int) (((long) percent * size + MAX_PERCENT - 1) / MAX_PERCENT);
     }
 }

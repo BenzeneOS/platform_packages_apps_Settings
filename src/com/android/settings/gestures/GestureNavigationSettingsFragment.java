@@ -17,6 +17,7 @@
 package com.android.settings.gestures;
 
 import android.app.settings.SettingsEnums;
+import android.content.ContentResolver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.res.Resources;
@@ -51,6 +52,10 @@ public class GestureNavigationSettingsFragment extends DashboardFragment {
             "com.android.settings.GESTURE_NAVIGATION_SETTINGS";
     static final String ACTION_GESTURE_SANDBOX = "com.android.quickstep.action.GESTURE_SANDBOX";
 
+    private static final int DEFAULT_BACK_GESTURE_REGION_TOP_PERCENT = 0;
+    private static final int DEFAULT_BACK_GESTURE_REGION_BOTTOM_PERCENT = 100;
+    private static final String LEFT_BACK_GESTURE_REGION_KEY = "gesture_left_back_region";
+    private static final String RIGHT_BACK_GESTURE_REGION_KEY = "gesture_right_back_region";
     private static final String LEFT_EDGE_SEEKBAR_KEY = "gesture_left_back_sensitivity";
     private static final String RIGHT_EDGE_SEEKBAR_KEY = "gesture_right_back_sensitivity";
     private static final String GESTURE_TUTORIAL_KEY = "assistant_gesture_navigation_tutorial";
@@ -87,6 +92,12 @@ public class GestureNavigationSettingsFragment extends DashboardFragment {
         mBackGestureInsetScales = getFloatArray(res.obtainTypedArray(
                 com.android.internal.R.array.config_backGestureInsetScales));
 
+        initBackRegionPreference(LEFT_BACK_GESTURE_REGION_KEY, true /* leftEdge */,
+                Settings.Secure.BACK_GESTURE_REGION_LEFT_TOP_PERCENT,
+                Settings.Secure.BACK_GESTURE_REGION_LEFT_BOTTOM_PERCENT);
+        initBackRegionPreference(RIGHT_BACK_GESTURE_REGION_KEY, false /* leftEdge */,
+                Settings.Secure.BACK_GESTURE_REGION_RIGHT_TOP_PERCENT,
+                Settings.Secure.BACK_GESTURE_REGION_RIGHT_BOTTOM_PERCENT);
         initSliderPreference(LEFT_EDGE_SEEKBAR_KEY);
         initSliderPreference(RIGHT_EDGE_SEEKBAR_KEY);
         initTutorialButton();
@@ -99,6 +110,20 @@ public class GestureNavigationSettingsFragment extends DashboardFragment {
 
         mWindowManager.addView(mIndicatorView, mIndicatorView.getLayoutParams(
                 getActivity().getWindow().getAttributes()));
+
+        // The overlay is attached after preferences are initialized, so apply the stored regions
+        // before it is shown by sensitivity slider changes.
+        applyRegionToIndicator(LEFT_BACK_GESTURE_REGION_KEY, true /* leftEdge */);
+        applyRegionToIndicator(RIGHT_BACK_GESTURE_REGION_KEY, false /* leftEdge */);
+    }
+
+    private void applyRegionToIndicator(String preferenceKey, boolean leftEdge) {
+        final BackGestureRegionPreference pref = getPreferenceScreen().findPreference(
+                preferenceKey);
+        if (pref == null) {
+            return;
+        }
+        mIndicatorView.setIndicatorRegion(pref.getTopPercent(), pref.getBottomPercent(), leftEdge);
     }
 
     @Override
@@ -164,6 +189,47 @@ public class GestureNavigationSettingsFragment extends DashboardFragment {
                     Settings.Secure.NAVIGATION_BAR_HINT, (boolean) newValue ? 1 : 0);
             return true;
         });
+    }
+
+    private void initBackRegionPreference(String preferenceKey, boolean leftEdge,
+            String topSettingsKey, String bottomSettingsKey) {
+        final BackGestureRegionPreference pref = getPreferenceScreen().findPreference(
+                preferenceKey);
+        if (pref == null) {
+            return;
+        }
+
+        final ContentResolver resolver = getContext().getContentResolver();
+        final int topPercent = Settings.Secure.getInt(
+                resolver, topSettingsKey, DEFAULT_BACK_GESTURE_REGION_TOP_PERCENT);
+        final int bottomPercent = Settings.Secure.getInt(
+                resolver, bottomSettingsKey, DEFAULT_BACK_GESTURE_REGION_BOTTOM_PERCENT);
+        pref.setRegion(topPercent, bottomPercent);
+        pref.setOnPreferenceChangeListener((p, v) -> {
+            if (!(v instanceof int[])) {
+                return false;
+            }
+            final int[] region = (int[]) v;
+            if (region.length != 2) {
+                return false;
+            }
+            // Always write both values so externally supplied, reversed bounds are canonicalized.
+            Settings.Secure.putInt(resolver, topSettingsKey, region[0]);
+            Settings.Secure.putInt(resolver, bottomSettingsKey, region[1]);
+            // Reflect the new region in the overlay and show it at the current inset width.
+            mIndicatorView.setIndicatorRegion(region[0], region[1], leftEdge);
+            mIndicatorView.setIndicatorWidth(getCurrentInsetWidth(leftEdge), leftEdge);
+            return true;
+        });
+    }
+
+    private int getCurrentInsetWidth(boolean leftEdge) {
+        final String settingsKey = leftEdge
+                ? Settings.Secure.BACK_GESTURE_INSET_SCALE_LEFT
+                : Settings.Secure.BACK_GESTURE_INSET_SCALE_RIGHT;
+        final float scale = Settings.Secure.getFloat(
+                getContext().getContentResolver(), settingsKey, 1.0f);
+        return (int) (mDefaultBackGestureInset * scale);
     }
 
     private void initSliderPreference(final String key) {

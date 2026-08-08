@@ -67,4 +67,16 @@ public class BackGestureIndicatorViewTest {
         assertEquals(25, mLeftDrawable.getWidth());
         assertEquals(52, mRightDrawable.getWidth());
     }
+
+    @Test
+    public void testSetIndicatorRegion() {
+        mView.setIndicatorRegion(10, 60, true);
+        mView.setIndicatorRegion(110, -10, false);
+        ShadowLooper.idleMainLooper();
+
+        assertEquals(10, mLeftDrawable.getTopPercent());
+        assertEquals(60, mLeftDrawable.getBottomPercent());
+        assertEquals(0, mRightDrawable.getTopPercent());
+        assertEquals(100, mRightDrawable.getBottomPercent());
+    }
 }
