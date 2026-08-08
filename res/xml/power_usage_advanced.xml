@@ -49,6 +49,18 @@
 
     </PreferenceCategory>
 
+    <Preference
+        android:key="observatory"
+        android:title="@string/observatory_title"
+        android:summary="@string/observatory_summary"
+        settings:controller=
+            "com.android.settings.fuelgauge.batteryusage.ObservatoryPreferenceController">
+        <intent
+            android:action="android.intent.action.MAIN"
+            android:targetPackage="org.benzeneos.observatory"
+            android:targetClass="org.benzeneos.observatory.MainActivity" />
+    </Preference>
+
     <PreferenceCategory
         android:key="battery_usage_breakdown"
         settings:controller=
