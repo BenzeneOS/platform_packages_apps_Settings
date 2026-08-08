@@ -12343,6 +12343,18 @@
     <!-- Informational message shown to users of foldable devices, explaining that the combined shade view is only available on the outer (narrow) screen of their device. [CHAR LIMIT=200]-->
     <string name="shade_panels_foldables_footer_message">Combined (classic) view is limited to the outer screen of your foldable device</string>
 
+    <!-- Title for choosing the shape of Quick Settings tiles. [CHAR LIMIT=60] -->
+    <string name="quick_settings_tile_shape_title">Quick Settings tile shape</string>
+
+    <!-- Quick Settings tile shape that always uses the pill-like rounded appearance. [CHAR LIMIT=30] -->
+    <string name="quick_settings_tile_shape_rounded">Rounded</string>
+
+    <!-- Quick Settings tile shape that always uses the tighter, square-like appearance. [CHAR LIMIT=30] -->
+    <string name="quick_settings_tile_shape_square">Square</string>
+
+    <!-- Quick Settings tile shape that changes with tile state, which is the default behavior. [CHAR LIMIT=30] -->
+    <string name="quick_settings_tile_shape_both">Both (default)</string>
+
     <!-- Preference title for "Safety & emergency" settings page [CHAR LIMIT=60]-->
     <string name="emergency_settings_preference_title">Safety &amp; emergency</string>
 

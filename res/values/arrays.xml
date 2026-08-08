@@ -1229,6 +1229,19 @@
         <item>0</item>
     </string-array>
 
+    <!-- Quick Settings tile shape entries. -->
+    <string-array name="quick_settings_tile_shape_entries">
+        <item>@string/quick_settings_tile_shape_rounded</item>
+        <item>@string/quick_settings_tile_shape_square</item>
+        <item>@string/quick_settings_tile_shape_both</item>
+    </string-array>
+
+    <string-array name="quick_settings_tile_shape_values" translatable="false">
+        <item>1</item>
+        <item>2</item>
+        <item>0</item>
+    </string-array>
+
     <string-array name="wifi_metered_entries">
         <item>Detect automatically</item>
         <item>Treat as metered</item>

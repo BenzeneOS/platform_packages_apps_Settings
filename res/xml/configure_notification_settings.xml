@@ -200,6 +200,15 @@
             android:fragment="com.android.settings.system.ShadePanelsFragment"
             settings:controller="com.android.settings.system.ShadePanelsPreferenceController"/>
 
+        <ListPreference
+            android:key="quick_settings_tile_shape"
+            android:title="@string/quick_settings_tile_shape_title"
+            android:order="24"
+            android:persistent="false"
+            android:entries="@array/quick_settings_tile_shape_entries"
+            android:entryValues="@array/quick_settings_tile_shape_values"
+            settings:controller="com.android.settings.notification.QSTileShapePreferenceController"/>
+
         <SwitchPreferenceCompat
              android:key="silent_icons"
              android:order="25"
