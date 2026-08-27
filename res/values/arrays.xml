@@ -2003,4 +2003,18 @@
         <item>5</item>
         <item>7</item>
     </string-array>
+    <string-array name="now_playing_storage_cap_entries">
+        <item>@string/now_playing_storage_unlimited</item>
+        <item>64 MB</item>
+        <item>128 MB</item>
+        <item>256 MB</item>
+        <item>512 MB</item>
+    </string-array>
+    <string-array name="now_playing_storage_cap_values" translatable="false">
+        <item>0</item>
+        <item>64</item>
+        <item>128</item>
+        <item>256</item>
+        <item>512</item>
+    </string-array>
 </resources>

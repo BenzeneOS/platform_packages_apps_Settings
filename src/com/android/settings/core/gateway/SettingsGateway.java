@@ -210,6 +210,7 @@ import com.android.settings.security.SecurityAdvancedSettings;
 import com.android.settings.security.SecuritySettings;
 import com.android.settings.shortcut.CreateShortcut;
 import com.android.settings.sound.MediaControlsSettings;
+import com.android.settings.sound.NowPlayingSettings;
 import com.android.settings.supervision.SupervisionDashboardFragment;
 import com.android.settings.support.SupportDashboardActivity;
 import com.android.settings.system.ResetDashboardFragment;
@@ -269,6 +270,7 @@ public class SettingsGateway {
             DataSaverSummary.class.getName(),
             DateTimeSettings.class.getName(),
             ClockSecondsSettings.class.getName(),
+            NowPlayingSettings.class.getName(),
             LocaleListEditor.class.getName(),
             LanguageAndRegionSettings.class.getName(),
             AvailableVirtualKeyboardFragment.class.getName(),

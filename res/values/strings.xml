@@ -15976,4 +15976,27 @@
     <string name="navigation_bar_hint_category_title">Navigation bar</string>
     <string name="navigation_bar_hint_title">Navigation hint</string>
     <string name="navigation_bar_hint_summary">Show bar at the bottom of the screen</string>
+    <string name="now_playing_title">Now Playing</string>
+    <string name="now_playing_keywords">music recognition, identify songs, song history</string>
+    <string name="now_playing_enabled_title">Identify songs playing nearby</string>
+    <string name="now_playing_enabled_summary">Identify music automatically using on-device recognition</string>
+    <string name="now_playing_catalog_category">Song catalog</string>
+    <string name="now_playing_storage_cap_title">Storage limit</string>
+    <string name="now_playing_storage_unlimited">Unlimited</string>
+    <string name="now_playing_storage_cap_summary"><xliff:g id="limit">%1$s</xliff:g>. A larger catalog recognizes more songs and uses more storage.</string>
+    <string name="now_playing_catalog_title">Downloaded catalog</string>
+    <string name="now_playing_catalog_empty">No downloaded catalog</string>
+    <string name="now_playing_catalog_unavailable">Catalog state is unavailable</string>
+    <string name="now_playing_catalog_summary">Build <xliff:g id="build">%1$s</xliff:g>, <xliff:g id="shards">%2$d</xliff:g> shards, <xliff:g id="size">%3$s</xliff:g></string>
+    <string name="now_playing_refresh_title">Refresh catalog</string>
+    <string name="now_playing_refresh_summary">Check for new songs when connected to an unmetered network</string>
+    <string name="now_playing_refresh_requested">Catalog refresh requested</string>
+    <string name="now_playing_delete_catalog_title">Delete downloaded catalog</string>
+    <string name="now_playing_delete_summary">Keep Now Playing enabled with only the built-in catalog</string>
+    <string name="now_playing_delete_catalog_message">Delete all downloaded song data?</string>
+    <string name="now_playing_delete">Delete</string>
+    <string name="now_playing_catalog_deleted">Downloaded catalog deleted</string>
+    <string name="now_playing_history_title">Now Playing history</string>
+    <string name="now_playing_history_summary">View recognized songs</string>
+    <string name="now_playing_action_failed">Couldn\'t update Now Playing</string>
 </resources>

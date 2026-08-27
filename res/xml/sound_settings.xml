@@ -189,6 +189,15 @@
             settings:controller="com.android.settings.notification.SpatialAudioParentPreferenceController"/>
 
         <Preference
+            android:key="now_playing"
+            android:fragment="com.android.settings.sound.NowPlayingSettings"
+            android:order="-105"
+            android:summary="@string/summary_placeholder"
+            android:title="@string/now_playing_title"
+            settings:controller="com.android.settings.sound.NowPlayingEntryPreferenceController"
+            settings:keywords="@string/now_playing_keywords" />
+
+        <Preference
             android:key="media_controls"
             android:title="@string/media_controls_title"
             android:fragment="com.android.settings.sound.MediaControlsSettings"

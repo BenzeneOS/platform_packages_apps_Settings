@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:key="now_playing_settings"
+    android:title="@string/now_playing_title">
+
+    <SwitchPreferenceCompat
+        android:key="now_playing_enabled"
+        android:persistent="false"
+        android:summary="@string/now_playing_enabled_summary"
+        android:title="@string/now_playing_enabled_title" />
+
+    <PreferenceCategory android:title="@string/now_playing_catalog_category">
+        <ListPreference
+            android:dialogTitle="@string/now_playing_storage_cap_title"
+            android:entries="@array/now_playing_storage_cap_entries"
+            android:entryValues="@array/now_playing_storage_cap_values"
+            android:key="now_playing_storage_cap"
+            android:persistent="false"
+            android:title="@string/now_playing_storage_cap_title" />
+
+        <Preference
+            android:key="now_playing_catalog"
+            android:selectable="false"
+            android:title="@string/now_playing_catalog_title" />
+
+        <Preference
+            android:key="now_playing_refresh"
+            android:summary="@string/now_playing_refresh_summary"
+            android:title="@string/now_playing_refresh_title" />
+
+        <Preference
+            android:key="now_playing_delete"
+            android:summary="@string/now_playing_delete_summary"
+            android:title="@string/now_playing_delete_catalog_title" />
+    </PreferenceCategory>
+
+    <Preference
+        android:key="now_playing_history"
+        android:summary="@string/now_playing_history_summary"
+        android:title="@string/now_playing_history_title" />
+
+</PreferenceScreen>
